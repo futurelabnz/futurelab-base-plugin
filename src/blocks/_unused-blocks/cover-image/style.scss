@@ -1,0 +1,23 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+@import "../../common.scss";
+
+.wp-block-futurelab-block-cover-image {
+	// include grid from foundation
+	@include foundation-xy-grid-classes(
+		/* options
+	  $base-grid: true,
+	  $margin-grid: true,
+	  $padding-grid: true,
+	  $block-grid: true,
+	  $collapse: true,
+	  $offset: true,
+	  $vertical-grid: true,
+	  $frame-grid: true
+	  */
+	);
+}

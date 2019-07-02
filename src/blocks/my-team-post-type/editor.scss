@@ -1,0 +1,38 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+@import "../../common.scss";
+
+.wp-block-futurelab-block-my-team-post-type {
+	// include grid from foundation
+	@include foundation-xy-grid-classes(
+		/* options
+       $base-grid: true,
+       $margin-grid: true,
+       $padding-grid: true,
+       $block-grid: true,
+       $collapse: true,
+       $offset: true,
+       $vertical-grid: true,
+       $frame-grid: true
+       */
+	);
+	.grid-container {
+		.grid-x {
+			.cell {
+				// .icon-container {
+				// 	background-color: green;
+				// 	border-radius: 50%;
+				// 	width: 30px;
+				// 	height: 30px;
+				// 	float: right;
+				// 	margin-top: -25px;
+				// }
+			}
+		}
+	}
+}

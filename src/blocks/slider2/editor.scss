@@ -1,0 +1,106 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+@import "../../common.scss";
+.wp-block-futurelab-block-fl-block-slider2 {
+	.slider {
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+		height: 600px;
+		overflow: hidden;
+		white-space: nowrap;
+		.slider-wrapper {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			.slide {
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				.slide-title {
+					display: flex;
+					justify-content: center;
+					padding-left: 80px;
+					margin-top: 120px;
+					height: 86px;
+				}
+				.slide-content {
+					// display: flex;
+					text-align: center;
+					justify-content: center;
+					padding-left: 80px;
+					height: 168px;
+				}
+				.slide-btn-container {
+					display: flex;
+					justify-content: center;
+					padding-left: 80px;
+					text-align: left;
+					.slide-btn {
+					}
+					.fl-button {
+						@include fl-button-mixin;
+					}
+				}
+			}
+		}
+		.arrow-custom {
+			height: 50px;
+			width: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #f9f9f9;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: transform ease-in 0.1s;
+		}
+
+		.nextArrow {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+		}
+
+		.backArrow {
+			position: absolute;
+			top: 50%;
+			left: 10px;
+		}
+	}
+}
+
+// styling for slider modal
+.slider-modal {
+	.block-editor-rich-text {
+		border: 1px solid #ccc;
+		padding: 10px 5px;
+		@include box-border-radius;
+	}
+	.slider-richtext {
+		.components-base-control__field {
+			.components-text-control__input {
+				border: 1px solid #ccc;
+				padding: 10px 5px;
+				@include box-border-radius;
+			}
+			input[type="text"]:focus {
+				border: 1px solid #ccc;
+				outline: unset;
+				box-shadow: none;
+			}
+		}
+	}
+	.components-button {
+		margin: $vertical-spacing 0;
+	}
+
+	.block-editor-rich-text__editable + .block-editor-rich-text__editable,
+	.block-editor-rich-text__editable + .block-editor-rich-text__editable p {
+		opacity: 1;
+	}
+}

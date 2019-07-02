@@ -1,0 +1,21 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+@import "swiper/css/swiper.css";
+
+.wp-block-futurelab-block-fl-content-carousel {
+	border: 1px solid black;
+	.wp-block {
+		max-width: none;
+	}
+	.swiper-button-next {
+		display: none;
+	}
+	.swiper-button-prev {
+		display: none;
+	}
+}

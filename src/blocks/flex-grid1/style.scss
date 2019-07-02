@@ -1,0 +1,32 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+@import "../../common.scss";
+
+.wp-block-futurelab-block-fl-block-flex-gird1 {
+	// override wp style so column can be in one line
+	.wp-block-column:not(:first-child) {
+		margin-left: 0px;
+	}
+	// override wp style so column can be in one line
+	.wp-block-column:nth-child(2n) {
+		margin-left: 0px;
+	}
+
+	// include grid from foundation
+	@include foundation-xy-grid-classes(
+		/* options
+	  $base-grid: true,
+	  $margin-grid: true,
+	  $padding-grid: true,
+	  $block-grid: true,
+	  $collapse: true,
+	  $offset: true,
+	  $vertical-grid: true,
+	  $frame-grid: true
+	  */
+	);
+}
