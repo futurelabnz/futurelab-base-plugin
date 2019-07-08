@@ -111,7 +111,7 @@ export default class extends Component {
 		const { currentIndex } = attributes;
 		const { slidesArray } = this.state;
 
-		// if it is the first time add block and select image
+		// if user click edit this slide right after create a slider
 		let newSlidesArray = [];
 		if ( slidesArray.length === 0 ) {
 			const slideData = {
