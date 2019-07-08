@@ -17,6 +17,8 @@
 			position: relative;
 			height: 100%;
 			width: 100%;
+			// include grid from foundation
+			@include foundation-xy-grid-classes();
 			.slide {
 				display: inline-block;
 				height: 100%;
@@ -45,6 +47,12 @@
 					.fl-button {
 						@include fl-button-mixin;
 					}
+				}
+				.slide-video {
+					margin: 60px;
+					margin-top: 120px;
+					min-height: 400px;
+					width: 600px;
 				}
 			}
 		}
@@ -80,20 +88,6 @@
 		border: 1px solid #ccc;
 		padding: 10px 5px;
 		@include box-border-radius;
-	}
-	.slider-richtext {
-		.components-base-control__field {
-			.components-text-control__input {
-				border: 1px solid #ccc;
-				padding: 10px 5px;
-				@include box-border-radius;
-			}
-			input[type="text"]:focus {
-				border: 1px solid #ccc;
-				outline: unset;
-				box-shadow: none;
-			}
-		}
 	}
 	.components-button {
 		margin: $vertical-spacing 0;

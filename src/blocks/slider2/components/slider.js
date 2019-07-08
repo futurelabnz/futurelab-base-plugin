@@ -8,8 +8,8 @@ export const Slide = ( {
 	image,
 	title,
 	content,
-	alignContent,
 	btnLabel,
+	embedUrl,
 	addSlideHandler,
 	editSlideHandler,
 	deleteSlideImageHandler,
@@ -23,6 +23,15 @@ export const Slide = ( {
 		backgroundPosition: '50% 60%',
 		height: '600px',
 	};
+	function addhttp( url ) {
+		let newUrl = '';
+		if ( ! url.match( /^(http|https)/ ) ) {
+			newUrl = `http://${ url }`;
+			return newUrl;
+		}
+
+		return url;
+	}
 	return (
 		<MediaUpload
 			onSelect={imageObject => {
@@ -73,32 +82,42 @@ export const Slide = ( {
 							Delete Slide
 						</Button>
 
-						<h2
-							className={'slide-title'}
-							style={{
-								justifyContent:
-									alignContent === 'right' ? 'flex-end' : alignContent,
-							}}
-							data-alignContent={alignContent}
-							dangerouslySetInnerHTML={{ __html: title }}
-						>
-							{/* {title} */}
-						</h2>
-						<p
-							className={'slide-content'}
-							style={{ textAlign: alignContent }}
-							dangerouslySetInnerHTML={{ __html: content }}
-						/>
-						<div
-							className={'slide-btn-container'}
-							style={{
-								justifyContent:
-									alignContent === 'right' ? 'flex-end' : alignContent,
-							}}
-						>
-							<Button className={'slide-btn fl-button'} href={'####'}>
-								{btnLabel}
-							</Button>
+						<div className="grid-x">
+							<div className="large-6 medium-12 small-12">
+								<h2
+									className={'slide-title'}
+									dangerouslySetInnerHTML={{ __html: title }}
+								>
+									{/* {title} */}
+								</h2>
+								<p
+									className={'slide-content'}
+									dangerouslySetInnerHTML={{ __html: content }}
+								/>
+								<div
+									className={'slide-btn-container'}
+								>
+									<Button className={'slide-btn fl-button'} href={'####'}>
+										{btnLabel}
+									</Button>
+								</div>
+							</div>
+							<div className="large-6 medium-12 small-12">
+								<iframe
+									title="embedVideo"
+									className="slide-video"
+									src={
+										embedUrl ?
+											addhttp( `${ embedUrl }` ) :
+											'https://www.youtube.com/embed/eNpZCFbZeUE'
+									}
+									style={embedUrl ? '' : { display: 'none' }}
+									// src={`${ embedUrl }`}
+									// src={'https://www.youtube.com/embed/eNpZCFbZeUE'}
+									frameBorder="0"
+									allow="autoplay; encrypted-media"
+								/>
+							</div>
 						</div>
 					</div>
 				);
