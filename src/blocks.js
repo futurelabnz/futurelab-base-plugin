@@ -23,9 +23,14 @@ import './blocks/content-carousel-item/block.js';
 import './blocks/latest-news/index.js';
 // import './blocks/cover-image/block.js';
 
-// flex grid
+// // flex grid
 // import './blocks/flex-grid1/block.js';
-// import './blocks/flex-grid1/components/fl-column.js'; 
+// import './blocks/flex-grid1/components/fl-column.js';
+
+// Hank rebuild content carousel
+import './blocks/content-carousel-dev/block.js';
+import './blocks/content-carousel-dev/components/content-carousel-item/block';
+import './blocks/content-carousel-dev/components/slide/index';
 
 // regist plugins
 // import './plugins/defaultLayout/index.js';
