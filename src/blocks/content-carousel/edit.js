@@ -17,15 +17,12 @@ export default class extends Component {
 	render() {
 		//JSX to return
 		const { attributes, setAttributes, className } = this.props;
-		// const TEMPLATE = [ [ 'futurelab/block-fl-content-carousel-item1' ] ];
 		return (
 			<div className={className}>
 				<div className="swiper-gallery-container swiper-container">
 					<div className="swiper-wrapper">
 						<InnerBlocks
-							allowedBlocks={[ 'futurelab/block-fl-content-carousel-item1' ]}
-							// allowedBlocks={[ 'futurelab/block-fl-content-carousel-item1', 'futurelab/slide' ]}
-							// template={TEMPLATE}
+							allowedBlocks={[ 'futurelab/block-fl-content-carousel-item' ]}
 						/>
 					</div>
 					<div className="swiper-button-next" />

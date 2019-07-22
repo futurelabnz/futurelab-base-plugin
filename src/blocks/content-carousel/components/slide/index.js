@@ -164,7 +164,7 @@ class edit extends Component {
 // Register the block
 registerBlockType( 'futurelab/slide', {
 	title: __( 'carousel slide', 'futurelab' ),
-	parent: [ 'futurelab/block-fl-content-carousel-item1' ],
+	parent: [ 'futurelab/block-fl-content-carousel-item' ],
 	description: __(
 		'Add a container block to wrap several blocks in a parent container.',
 		'futurelab'
@@ -173,7 +173,7 @@ registerBlockType( 'futurelab/slide', {
 		background: 'rgba(225, 225, 225, 0.25)',
 		src: 'wordpress-alt',
 	},
-	category: 'common', // Block category
+	category: 'fl-Blocks', // Block category
 	keywords: [ __( 'container', 'futurelab' ), __( 'section', 'futurelab' ) ],
 
 	attributes: blockAttributes,

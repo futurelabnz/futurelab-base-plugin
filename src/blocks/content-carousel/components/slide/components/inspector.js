@@ -55,11 +55,14 @@ export default class Inspector extends Component {
 		const { setAttributes } = this.props;
 
 		const onSelectImage = img => {
-			setAttributes( {
-				containerImgID: img.id,
-				containerImgURL: img.url,
-				containerImgAlt: img.alt,
-			} );
+			if ( img ) {
+				setAttributes( {
+					containerImgID: img.id || null,
+					containerImgURL: img.url || null,
+					containerImgAlt: img.alt || null,
+				} );
+			} else {
+			}
 		};
 
 		const onRemoveImage = () => {

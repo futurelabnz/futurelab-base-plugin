@@ -15,14 +15,14 @@ const { InnerBlocks } = wp.editor; //Import inner blocks from wp.editor
 import edit from './edit';
 import save from './save';
 
-registerBlockType( 'futurelab/block-fl-content-carousel-item1', {
+registerBlockType( 'futurelab/block-fl-content-carousel-item', {
 	title: __( 'carousel item' ), // Block title.
-	parent: [ 'futurelab/block-fl-content-carousel1' ],
+	parent: [ 'futurelab/block-fl-content-carousel' ],
 	icon: {
 		background: 'rgba(225, 225, 225, 0.25)',
 		src: 'wordpress-alt',
 	}, // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'common', // Block category
+	category: 'fl-Blocks', // Block category
 	keywords: [
 		//Keywords
 		__( 'futurelab' ),
