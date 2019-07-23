@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 
 const { Button, Modal, TextControl } = wp.components;
-const { RichText, URLInput } = wp.editor;
+const { RichText, URLInput, MediaUpload } = wp.editor;
 const { Component } = wp.element;
 
 import { Slide, LeftArrow, RightArrow } from './components/slider';
@@ -13,7 +13,15 @@ export default class extends Component {
 		super( ...arguments );
 		this.props = props;
 		this.state = {
-			slidesArray: [],
+			slidesArray: [
+				{
+					image: '',
+					title: 'please enter title',
+					content: 'please enter content',
+					btnLabel: 'button label',
+					btnUrl: '',
+				},
+			],
 		};
 	}
 	// component finish loading
@@ -105,18 +113,8 @@ export default class extends Component {
 
 		// if user click edit this slide right after create a slider
 		let newSlidesArray = [];
-		if ( slidesArray.length === 0 ) {
-			const slideData = {
-				image: '',
-				title: 'please enter title',
-				content: 'please enter content',
-				btnLabel: 'button label',
-				btnUrl: '',
-			};
-			newSlidesArray.push( slideData );
-		} else {
-			newSlidesArray = slidesArray;
-		}
+
+		newSlidesArray = slidesArray;
 		// edit components own state
 		this.setState( { slidesArray: newSlidesArray } );
 		setAttributes( { isEditModalOpen: true } );
@@ -164,18 +162,9 @@ export default class extends Component {
 
 		// if it is the first time add block and select image
 		let newSlidesArray = [];
-		if ( slidesArray.length === 0 ) {
-			const slideData = {
-				image: '',
-				title: 'please enter title',
-				content: 'please enter content',
-				btnLabel: 'button label',
-				btnUrl: '',
-			};
-			newSlidesArray.push( slideData );
-		} else {
-			newSlidesArray = slidesArray;
-		}
+
+		newSlidesArray = slidesArray;
+
 		newSlidesArray.map( ( item, index ) => {
 			if ( index === currentIndex ) {
 				item.image = imageObject.sizes.full.url;
@@ -186,6 +175,16 @@ export default class extends Component {
 		// pass the data to attributes
 		setAttributes( { slides: newSlidesArray } );
 	};
+
+	addhttp( url ) {
+		let newUrl = '';
+		if ( ! url.match( /^(http|https)/ ) ) {
+			newUrl = `http://${ url }`;
+			return newUrl;
+		}
+
+		return url;
+	}
 
 	render() {
 		const { attributes, setAttributes, className } = this.props;
@@ -211,19 +210,157 @@ export default class extends Component {
 						{slides.map( ( slide, i ) => {
 							const { image, title, content, btnLabel } = slide;
 							return (
-								<Slide
-									key={i}
-									// slideIndex={i}
-									image={image}
-									title={title}
-									content={content}
-									btnLabel={btnLabel}
-									embedUrl={embedUrl}
-									addSlideHandler={this.addSlideHandler}
-									editSlideHandler={this.editSlideHandler}
-									deleteSlideImageHandler={this.deleteSlideImageHandler}
-									selectImageHandler={this.selectImageHandler}
-									deleteSlideHandler={this.deleteSlideHandler}
+								<MediaUpload
+									onSelect={imageObject => {
+										this.selectImageHandler( imageObject );
+									}}
+									type="image"
+									value={image}
+									render={( { open } ) => {
+										return ! true ? null : (
+											<div
+												className="slide"
+												style={{
+													backgroundImage: `url(${ image })`,
+												}}
+											>
+												<Button
+													isDefault
+													className="image-button"
+													onClick={open}
+												>
+													Choose Image
+												</Button>
+												<Button
+													isDefault
+													className={'slide-edit-this-slide'}
+													onClick={() => {
+														this.editSlideHandler();
+													}}
+												>
+													Edit This Slide
+												</Button>
+												<Button
+													isDefault
+													className={'slide-add-this-slide'}
+													onClick={() => {
+														this.addSlideHandler();
+													}}
+												>
+													Add New Slide
+												</Button>
+												<Button
+													isDefault
+													className="remove-image"
+													onClick={() => {
+														this.deleteSlideImageHandler();
+													}}
+												>
+													Delete Image
+												</Button>
+												<Button
+													isDefault
+													className="remove-slider"
+													onClick={() => {
+														this.deleteSlideHandler();
+													}}
+												>
+													Delete Slide
+												</Button>
+
+												<div className="grid-x">
+													<div className="large-6 medium-12 small-12">
+														<RichText
+															className="slider-richtext slide-title"
+															placeholder="TITLE"
+															onChange={value => {
+																const newSlidesArray = slidesArray;
+																newSlidesArray.map( ( item, index ) => {
+																	if ( index === currentIndex ) {
+																		item.title = value;
+																	}
+																} );
+																// edit components own state
+																this.setState( { slidesArray: slidesArray } );
+																// pass the data to attributes
+																setAttributes( { slides: slidesArray } );
+															}}
+															value={
+																slidesArray[ currentIndex ] ?
+																	slidesArray[ currentIndex ].title :
+																	''
+															}
+														/>
+														<RichText
+															className="slider-richtext slide-content"
+															placeholder="content"
+															onChange={value => {
+																// console.log( 'slidesArray', slidesArray );
+																console.log( 'slides', slides );
+																const newSlidesArray = slidesArray;
+																newSlidesArray.map( ( item, index ) => {
+																	if ( index === currentIndex ) {
+																		item.content = value;
+																	}
+																} );
+																this.setState( { slidesArray: slidesArray } );
+																setAttributes( { slides: slidesArray } );
+															}}
+															value={
+																slidesArray[ currentIndex ] ?
+																	slidesArray[ currentIndex ].content :
+																	''
+															}
+														/>
+														<div className={'slide-btn-container'}>
+															<Button
+																className={'slide-btn fl-button'}
+																href={'####'}
+															>
+																{/* {btnLabel} */}
+																<RichText
+																	className="slider-richtext"
+																	placeholder="btnLabel"
+																	onChange={value => {
+																		const newSlidesArray = slidesArray;
+																		newSlidesArray.map( ( item, index ) => {
+																			if ( index === currentIndex ) {
+																				item.btnLabel = value;
+																			}
+																		} );
+																		this.setState( { slidesArray: slidesArray } );
+																		setAttributes( { slides: slidesArray } );
+																	}}
+																	value={
+																		slidesArray[ currentIndex ] ?
+																			slidesArray[ currentIndex ].btnLabel :
+																			''
+																	}
+																/>
+															</Button>
+														</div>
+													</div>
+													<div className="large-6 medium-12 small-12">
+														{slidesArray[ currentIndex ].embedUrl && (
+															<iframe
+																title="embedVideo"
+																className="slide-video"
+																src={
+																	slidesArray[ currentIndex ].embedUrl ?
+																		this.addhttp(
+																			`${ slidesArray[ currentIndex ].embedUrl }`
+																		  ) :
+																		''
+																}
+																frameBorder="0"
+																allow="autoplay; encrypted-media"
+															/>
+														)}
+													</div>
+												</div>
+											</div>
+										);
+									}}
 								/>
 							);
 						} )}
@@ -240,62 +377,6 @@ export default class extends Component {
 							className="slider-modal"
 							shouldCloseOnClickOutside={false}
 						>
-							<p style={{ fontSize: '24px', fontWeight: 'bold' }}>
-								Please enter slide title
-							</p>
-							<RichText
-								className="slider-richtext"
-								placeholder="TITLE"
-								onChange={value => {
-									const newSlidesArray = slidesArray;
-									newSlidesArray.map( ( item, index ) => {
-										if ( index === currentIndex ) {
-											item.title = value;
-										}
-									} );
-									// edit components own state
-									this.setState( { slidesArray: slidesArray } );
-									// pass the data to attributes
-									setAttributes( { slides: slidesArray } );
-								}}
-								value={slidesArray[ currentIndex ].title}
-							/>
-							<p style={{ fontSize: '24px', fontWeight: 'bold' }}>
-								Please enter slide content
-							</p>
-							<RichText
-								className="slider-richtext"
-								placeholder="content"
-								onChange={value => {
-									const newSlidesArray = slidesArray;
-									newSlidesArray.map( ( item, index ) => {
-										if ( index === currentIndex ) {
-											item.content = value;
-										}
-									} );
-									this.setState( { slidesArray: slidesArray } );
-									setAttributes( { slides: slidesArray } );
-								}}
-								value={slidesArray[ currentIndex ].content}
-							/>
-							<p style={{ fontSize: '24px', fontWeight: 'bold' }}>
-								Please enter button label
-							</p>
-							<RichText
-								className="slider-richtext"
-								placeholder="btnLabel"
-								onChange={value => {
-									const newSlidesArray = slidesArray;
-									newSlidesArray.map( ( item, index ) => {
-										if ( index === currentIndex ) {
-											item.btnLabel = value;
-										}
-									} );
-									this.setState( { slidesArray: slidesArray } );
-									setAttributes( { slides: slidesArray } );
-								}}
-								value={slidesArray[ currentIndex ].btnLabel}
-							/>
 							<p style={{ fontSize: '24px', fontWeight: 'bold' }}>
 								Please enter button url
 							</p>
