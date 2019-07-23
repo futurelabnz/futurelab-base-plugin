@@ -21,13 +21,6 @@ export default class extends Component {
 		const { attributes, setAttributes } = this.props;
 		const { swiperSlide, embedUrl, slidesSelector, slides } = attributes;
 
-		console.log( 'slides', slides );
-
-		console.log( 'slidesSelector', slidesSelector );
-		// console.log( ' JSON.parse(slidesSelector)', JSON.parse( slidesSelector ) );
-
-		console.log( 'embedUrl', embedUrl );
-
 		// const newSlidesArray = JSON.parse( slidesSelector ) || [];
 		let newSlidesArray = [];
 		if ( slidesSelector ) {
@@ -36,7 +29,6 @@ export default class extends Component {
 
 		// first time add slider block, do not need to store the data on page to state and attribute
 		if ( newSlidesArray.length > 0 ) {
-			console.log( 'slides', newSlidesArray );
 			this.setState( { slidesArray: newSlidesArray } );
 			// TODO: feels not right to setAttributes here
 			setAttributes( { slides: newSlidesArray } );
@@ -155,7 +147,6 @@ export default class extends Component {
 		const { slidesArray } = this.state;
 		// setAttributes( { leftImage: '' } );
 		const newSlidesArray = slidesArray;
-		console.log( 'currentIndex', currentIndex );
 
 		// delete currnet slide
 		newSlidesArray.splice( currentIndex, 1 );
