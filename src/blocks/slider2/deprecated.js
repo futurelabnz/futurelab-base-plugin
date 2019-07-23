@@ -2,8 +2,56 @@
 
 import { scrolldownArrow } from './icons';
 
-export default ( { attributes, setAttributes } ) => {
+const attributes = {
+	// slides array useful to loop and generate slide
+	align: {
+		type: 'string',
+		default: 'full',
+	},
+	slides: {
+		type: 'Array',
+		default: [
+			{
+				image: '',
+				title: 'please enter title',
+				content: 'please enter content',
+				btnLabel: 'button label',
+				btnUrl: '',
+				embedUrl: '',
+			},
+		],
+	},
+	// the swiper array from page(including HTML types)
+	swiperSlide: {
+		type: 'Array',
+		selector: '.swiper-wrapper',
+		source: 'children',
+	},
+	title: {
+		type: 'Array',
+		selector: '.slide-title',
+		source: 'text',
+	},
+	currentIndex: {
+		type: 'Number',
+		default: 0,
+	},
+	translateValue: {
+		type: 'Number',
+		default: 0,
+	},
+	slidesSelector: {
+		type: 'String',
+		source: 'attribute',
+		attribute: 'data-slides',
+		selector: '.swiper-wrapper',
+	},
+};
+
+const sliderSave = ( { attributes, setAttributes } ) => {
 	const { slides = [] } = attributes;
+	console.log( 'slides Save', slides );
+	console.log( 'JSON.stringify( slides )', JSON.stringify( slides ) );
 
 	// check if the url has http:'' protocal at first
 	function addhttp( url ) {
@@ -24,12 +72,22 @@ export default ( { attributes, setAttributes } ) => {
 						const { image, title, content, btnLabel, btnUrl, embedUrl } = slide;
 						const styles = {
 							backgroundImage: `url(${ image })`,
+							// backgroundSize: 'cover',
+							// backgroundRepeat: 'no-repeat',
+							// backgroundPosition: '50% 60%',
+							// height: '600px',
 						};
 						return (
 							<div key={i} className="swiper-slide grid-x" style={styles}>
 								<div
-									style={styles}
-									className="medium-12 small-12 mobile-slider hide-for-large"
+									style={{
+										...styles,
+										height: '300px',
+										backgroundSize: 'cover',
+										backgroundRepeat: 'no-repeat',
+										backgroundPosition: '50% 60%',
+									}}
+									className="medium-12 small-12 hide-for-large"
 								/>
 								<div className="overlay-slider medium-12 small-12">
 									<div className="slider-container alignwide grid-x">
@@ -59,20 +117,18 @@ export default ( { attributes, setAttributes } ) => {
 												'slide-video-container large-6 medium-12 small-12'
 											}
 										>
-											{embedUrl && (
-												<iframe
-													title="embedVideo"
-													className="slide-video"
-													src={
-														embedUrl ?
-															addhttp( `${ embedUrl }` ) :
-															''
-													}
-													// style={embedUrl ? '' : 'display: none'}
-													frameBorder="0"
-													allow="autoplay; encrypted-media"
-												/>
-											)}
+											<iframe
+												title="embedVideo"
+												className="slide-video"
+												src={
+													embedUrl ?
+														addhttp( `${ embedUrl }` ) :
+														'https://www.youtube.com/embed/eNpZCFbZeUE'
+												}
+												style={embedUrl ? '' : 'display: none'}
+												frameBorder="0"
+												allow="autoplay; encrypted-media"
+											/>
 										</div>
 									</div>
 								</div>
@@ -90,3 +146,13 @@ export default ( { attributes, setAttributes } ) => {
 		</div>
 	);
 };
+
+// Build deprecated list
+const deprecated = [
+	{
+		attributes: attributes,
+		save: sliderSave,
+	},
+];
+
+export default deprecated;

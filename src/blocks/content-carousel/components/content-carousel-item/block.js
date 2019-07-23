@@ -1,19 +1,23 @@
 /**
- * BLOCK: content-carousel-dev
+ * BLOCK: my-test-block
+ *
+ * Registering a basic block with Gutenberg.
+ * Simple block, renders and saves the same content without any interactivity.
  */
 
 import './style.scss';
 import './editor.scss';
 
-import edit from './edit';
-import save from './save';
-
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { InnerBlocks } = wp.editor; //Import inner blocks from wp.editor
 
-registerBlockType( 'futurelab/block-fl-content-carousel', {
-	title: __( 'Futurelab content carousel' ), // Block title.
+import edit from './edit';
+import save from './save';
+
+registerBlockType( 'futurelab/block-fl-content-carousel-item', {
+	title: __( 'carousel item' ), // Block title.
+	parent: [ 'futurelab/block-fl-content-carousel' ],
 	icon: {
 		background: 'rgba(225, 225, 225, 0.25)',
 		src: 'wordpress-alt',
@@ -26,11 +30,6 @@ registerBlockType( 'futurelab/block-fl-content-carousel', {
 	],
 	attributes: {
 		//Attributes
-		// slides array useful to loop and generate slide
-		align: {
-			type: 'string',
-			default: 'full',
-		},
 		currentSlide: {
 			type: 'Number',
 			default: 0,
@@ -38,10 +37,4 @@ registerBlockType( 'futurelab/block-fl-content-carousel', {
 	},
 	edit: edit,
 	save: save,
-	useOnce: false,
-	supports: {
-		align: true,
-		alignWide: true,
-		customClassName: false,
-	},
 } );

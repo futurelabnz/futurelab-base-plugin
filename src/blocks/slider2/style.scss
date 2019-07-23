@@ -75,6 +75,13 @@
 				position: absolute;
 				left: 0;
 			}
+
+			.mobile-slider {
+				height: 300px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50% 60%;
+			}
 			// hide slider on mobile
 			@media (max-width: 600px) {
 				.swiper-slide {
@@ -118,7 +125,7 @@
 					background: $light;
 					width: 100%;
 					position: relative;
-					// height: 400px;
+					min-height: 300px;
 					// position: absolute;
 					// top: 300px;
 					.alignwide {

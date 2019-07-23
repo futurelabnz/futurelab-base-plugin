@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-05-10 09:08:46
  * @Last Modified by: Hank
- * @Last Modified time: 2019-06-28 17:47:36
+ * @Last Modified time: 2019-07-23 13:38:06
  */
 
 // TODO: Fix the content width on backend editor, the content can go out side of div...
@@ -14,6 +14,7 @@ import { Slide, LeftArrow, RightArrow } from './components/slider';
 import { scrolldownArrow } from './icons';
 import edit from './edit';
 import save from './save';
+import deprecated from './deprecated';
 
 const { Button, Modal, TextControl } = wp.components;
 const { RichText, URLInput } = wp.editor;
@@ -81,6 +82,7 @@ registerBlockType( 'futurelab/block-fl-block-slider2', {
 	// Made edit as a class component for react lifecycle(componentDidMount)
 	edit: edit,
 	save: save,
+	deprecated: deprecated,
 	useOnce: false,
 	supports: {
 		align: true,
