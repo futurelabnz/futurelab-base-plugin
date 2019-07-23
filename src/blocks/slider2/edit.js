@@ -20,6 +20,7 @@ export default class extends Component {
 					content: 'please enter content',
 					btnLabel: 'button label',
 					btnUrl: '',
+					embedUrl: '',
 				},
 			],
 		};
@@ -39,7 +40,7 @@ export default class extends Component {
 		if ( newSlidesArray.length > 0 ) {
 			this.setState( { slidesArray: newSlidesArray } );
 			// TODO: feels not right to setAttributes here
-			setAttributes( { slides: newSlidesArray } );
+			setAttributes( { slides: [ ...newSlidesArray ] } );
 		}
 	}
 
@@ -95,13 +96,14 @@ export default class extends Component {
 			content: 'please enter content',
 			btnLabel: 'button label',
 			btnUrl: '',
+			embedUrl: '',
 		};
 		newSlidesArray.splice( currentIndex + 1, 0, slideData );
 		this.setState( { slidesArray: newSlidesArray } );
 		setAttributes( {
 			currentIndex: currentIndex + 1,
 			translateValue: translateValue + -this.slideWidth(),
-			slides: newSlidesArray,
+			slides: [ ...newSlidesArray ],
 		} );
 	};
 
@@ -135,7 +137,7 @@ export default class extends Component {
 		// edit components own state
 		this.setState( { slidesArray: newSlidesArray } );
 		// pass the data to attributes
-		setAttributes( { slides: newSlidesArray } );
+		setAttributes( { slides: [ ...newSlidesArray ] } );
 	};
 
 	// remove slider event handler
@@ -151,7 +153,7 @@ export default class extends Component {
 		// edit components own state
 		this.setState( { slidesArray: newSlidesArray } );
 		// pass the data to attributes
-		setAttributes( { slides: newSlidesArray } );
+		setAttributes( { slides: [ ...newSlidesArray ] } );
 	};
 
 	// select Image handler for change Image and Add new Image
@@ -173,7 +175,7 @@ export default class extends Component {
 		// edit components own state
 		this.setState( { slidesArray: newSlidesArray } );
 		// pass the data to attributes
-		setAttributes( { slides: newSlidesArray } );
+		setAttributes( { slides: [ ...newSlidesArray ] } );
 	};
 
 	addhttp( url ) {
@@ -274,7 +276,8 @@ export default class extends Component {
 															className="slider-richtext slide-title"
 															placeholder="TITLE"
 															onChange={value => {
-																const newSlidesArray = slidesArray;
+																let newSlidesArray = [];
+																newSlidesArray = slidesArray;
 																newSlidesArray.map( ( item, index ) => {
 																	if ( index === currentIndex ) {
 																		item.title = value;
@@ -283,7 +286,7 @@ export default class extends Component {
 																// edit components own state
 																this.setState( { slidesArray: slidesArray } );
 																// pass the data to attributes
-																setAttributes( { slides: slidesArray } );
+																setAttributes( { slides: [ ...newSlidesArray ] } );
 															}}
 															value={
 																slidesArray[ currentIndex ] ?
@@ -295,16 +298,16 @@ export default class extends Component {
 															className="slider-richtext slide-content"
 															placeholder="content"
 															onChange={value => {
-																// console.log( 'slidesArray', slidesArray );
-																console.log( 'slides', slides );
-																const newSlidesArray = slidesArray;
+																let newSlidesArray = [];
+																newSlidesArray = slidesArray;
 																newSlidesArray.map( ( item, index ) => {
 																	if ( index === currentIndex ) {
 																		item.content = value;
 																	}
 																} );
-																this.setState( { slidesArray: slidesArray } );
-																setAttributes( { slides: slidesArray } );
+
+																this.setState( { slidesArray: newSlidesArray } );
+																setAttributes( { slides: [ ...newSlidesArray ] } );
 															}}
 															value={
 																slidesArray[ currentIndex ] ?
@@ -322,14 +325,19 @@ export default class extends Component {
 																	className="slider-richtext"
 																	placeholder="btnLabel"
 																	onChange={value => {
-																		const newSlidesArray = slidesArray;
+																		let newSlidesArray = [];
+																		newSlidesArray = slidesArray;
 																		newSlidesArray.map( ( item, index ) => {
 																			if ( index === currentIndex ) {
 																				item.btnLabel = value;
 																			}
 																		} );
-																		this.setState( { slidesArray: slidesArray } );
-																		setAttributes( { slides: slidesArray } );
+																		this.setState( {
+																			slidesArray: newSlidesArray,
+																		} );
+																		setAttributes( {
+																			slides: [ ...newSlidesArray ],
+																		} );
 																	}}
 																	value={
 																		slidesArray[ currentIndex ] ?
@@ -341,7 +349,7 @@ export default class extends Component {
 														</div>
 													</div>
 													<div className="large-6 medium-12 small-12">
-														{slidesArray[ currentIndex ].embedUrl && (
+														{slidesArray[ currentIndex ] && (
 															<iframe
 																title="embedVideo"
 																className="slide-video"
