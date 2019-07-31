@@ -16,6 +16,8 @@ export default ( { attributes, setAttributes } ) => {
 		return url;
 	}
 
+	// console.log( 'slides in save', slides );
+
 	return (
 		<div>
 			<div className="swiper-container">
@@ -63,11 +65,7 @@ export default ( { attributes, setAttributes } ) => {
 												<iframe
 													title="embedVideo"
 													className="slide-video"
-													src={
-														embedUrl ?
-															addhttp( `${ embedUrl }` ) :
-															''
-													}
+													src={embedUrl ? addhttp( `${ embedUrl }` ) : ''}
 													// style={embedUrl ? '' : 'display: none'}
 													frameBorder="0"
 													allow="autoplay; encrypted-media"

@@ -23,6 +23,10 @@
 				display: inline-block;
 				height: 100%;
 				width: 100%;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50% 60%;
+				min-height: 600px;
 				.slide-title {
 					display: flex;
 					justify-content: center;
