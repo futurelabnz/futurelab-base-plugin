@@ -13,20 +13,6 @@
 @import "../../../themes/futurelab-base-theme/assets/scss/mixins.scss";
 // @import "../../../themes/futurelab-base/assets/scss/blocks.scss";
 
-// maybe wrong to put it here
-// TODO: Think where to put this, or use foundation?
-.alignwide {
-	padding-right: 0.9375rem;
-	padding-left: 0.9375rem;
-	max-width: 75rem;
-	margin: 0 auto;
-}
-
-.alignfull {
-	max-width: none;
-	margin: 0 auto;
-}
-
 /* methods
 -------------------------- */
 // background image

@@ -9,6 +9,9 @@
  * Webpack is compiling as the input file.
  */
 
+// common styles
+import './style.scss';
+
 // regist block
 import './blocks/image-text/block.js';
 import './blocks/slider2/block.js';
