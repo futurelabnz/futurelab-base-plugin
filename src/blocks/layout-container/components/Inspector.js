@@ -152,7 +152,7 @@ export default class Inspector extends Component {
 						onChange={value =>
 							this.props.setAttributes( { containerMaxWidth: value } )
 						}
-						min={500}
+						min={320}
 						max={1600}
 						step={1}
 					/>
