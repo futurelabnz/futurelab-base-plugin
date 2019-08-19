@@ -4,7 +4,7 @@
  * @Author: Hank
  * @Date: 2019-05-15 12:00:17
  * @Last Modified by: Hank
- * @Last Modified time: 2019-05-23 17:12:34
+ * @Last Modified time: 2019-08-20 10:31:32
  */
 
 //  Import CSS.
@@ -344,6 +344,5 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 	supports: {
 		align: true,
 		alignWide: true,
-		customClassName: false,
 	},
 } );

@@ -42,6 +42,5 @@ registerBlockType( 'futurelab/block-fl-content-carousel', {
 	supports: {
 		align: true,
 		alignWide: true,
-		customClassName: false,
 	},
 } );

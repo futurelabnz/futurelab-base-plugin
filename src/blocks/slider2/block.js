@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-05-10 09:08:46
  * @Last Modified by: Hank
- * @Last Modified time: 2019-07-23 13:38:06
+ * @Last Modified time: 2019-08-20 10:29:56
  */
 
 // TODO: Fix the content width on backend editor, the content can go out side of div...
@@ -87,6 +87,5 @@ registerBlockType( 'futurelab/block-fl-block-slider2', {
 	supports: {
 		align: true,
 		alignWide: true,
-		customClassName: false,
 	},
 } );

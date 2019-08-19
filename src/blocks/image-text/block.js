@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-05-07 14:53:25
  * @Last Modified by: Hank
- * @Last Modified time: 2019-06-11 16:32:22
+ * @Last Modified time: 2019-08-20 10:31:05
  */
 /**
  * BLOCK: fl-block-base
@@ -449,6 +449,5 @@ registerBlockType( 'futurelab/block-fl-block-image-text', {
 	supports: {
 		align: true,
 		alignWide: true,
-		customClassName: false,
 	},
 } );
