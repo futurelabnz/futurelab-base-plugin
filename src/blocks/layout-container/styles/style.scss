@@ -1,0 +1,82 @@
+/**
+ * Container styles
+ * Loads on front end and back end
+ */
+
+.block-layout-container {
+	background-color: $light;
+	margin: 0;
+	position: relative;
+	padding: 0;
+	width: 100%;
+	min-height: 200px;
+
+	&.alignfull {
+		.editor-block-list__block {
+			max-width: 100%;
+		}
+		.fl-container-inside {
+			@media only screen and (min-width: 768px) {
+				max-width: 100%;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	&.alignwide {
+		.fl-container-inside {
+			@media only screen and (min-width: 768px) {
+				max-width: 80%;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.fl-container-image-wrap {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 100%;
+		z-index: 0;
+	}
+
+	.fl-container-image {
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+		transition: 0.3s ease;
+	}
+
+	.fl-container-content {
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.fl-container-image:not(.has-background-dim) {
+		opacity: 0;
+	}
+
+	.has-background-dim {
+		opacity: 0.5;
+	}
+
+	$dims: (
+		"10": 0.1,
+		"20": 0.2,
+		"30": 0.3,
+		"40": 0.4,
+		"50": 0.5,
+		"60": 0.6,
+		"70": 0.7,
+		"80": 0.8,
+		"90": 0.9,
+		"100": 1
+	);
+
+	@each $name, $dim in $dims {
+		.has-background-dim-#{$name} {
+			opacity: $dim;
+		}
+	}
+}
