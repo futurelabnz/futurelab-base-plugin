@@ -3,7 +3,7 @@
  * @Author: Hank
  * @Date: 2019-05-24 10:49:35
  * @Last Modified by: Hank
- * @Last Modified time: 2019-06-12 13:35:08
+ * @Last Modified time: 2019-08-20 10:30:23
  */
 
 /* eslint-disable prefer-const */
@@ -45,6 +45,5 @@ registerBlockType( 'futurelab/block-my-team-post-type', {
 	supports: {
 		align: true,
 		alignWide: true,
-		customClassName: false,
 	},
 } );

@@ -3,7 +3,7 @@
  * @Author: Hank
  * @Date: 2019-05-24 10:49:35
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-19 13:13:40
+ * @Last Modified time: 2019-08-20 10:30:38
  */
 
 /* eslint-disable prefer-const */
@@ -250,7 +250,6 @@ registerBlockType( 'futurelab/block-layout-container', {
 	supports: {
 		align: true,
 		alignWide: true,
-		customClassName: false,
 	},
 } );
 
