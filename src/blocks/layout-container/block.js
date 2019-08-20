@@ -3,7 +3,7 @@
  * @Author: Hank
  * @Date: 2019-05-24 10:49:35
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-20 10:30:38
+ * @Last Modified time: 2019-08-21 10:05:32
  */
 
 /* eslint-disable prefer-const */
@@ -11,7 +11,7 @@
 
 // Import block dependencies and components
 import classnames from 'classnames';
-import Inspector from './components/inspector';
+import Inspector from './components/Inspector';
 import Container from './components/container';
 import deprecated from './deprecated';
 
