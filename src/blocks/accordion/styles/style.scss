@@ -1,0 +1,62 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.fl-block-accordion {
+	margin-bottom: 1.2em;
+
+	.fl-accordion-title {
+		background: #f2f2f2;
+		padding: 10px 15px;
+
+		p {
+			display: inline;
+		}
+	}
+
+	.fl-accordion-text {
+		padding: 10px 15px;
+	}
+
+	.editor-rich-text .editor-rich-text__inline-toolbar {
+		display: block;
+		left: 40%;
+	}
+}
+
+.fl-block-accordion.fl-align-center {
+	margin-bottom: 1.2em;
+
+	.fl-accordion-title {
+		text-align: center;
+	}
+}
+
+.fl-block-accordion + .fl-block-accordion {
+	margin-top: -0.6em;
+}
+
+@media only screen and (min-width: 600px) {
+	$fontsizes: (
+		"14": 14px,
+		"15": 15px,
+		"16": 16px,
+		"17": 17px,
+		"18": 18px,
+		"19": 19px,
+		"20": 20px,
+		"21": 21px,
+		"22": 22px,
+		"23": 23px,
+		"24": 24px
+	);
+	@each $size, $fontsize in $fontsizes {
+		.fl-font-size-#{$size} {
+			.fl-accordion-title {
+				font-size: $fontsize;
+			}
+		}
+	}
+}

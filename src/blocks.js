@@ -20,6 +20,7 @@ import './blocks/layout-container/block.js';
 import './blocks/my-team-post-type/block.js';
 import './blocks/gallery/block.js';
 import './blocks/latest-news/index.js';
+import './blocks/accordion/block.js';
 // Hank rebuild content carousel
 import './blocks/content-carousel/block.js';
 import './blocks/content-carousel/components/content-carousel-item/block';
