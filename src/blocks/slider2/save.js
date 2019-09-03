@@ -3,7 +3,13 @@
 import { scrolldownArrow } from './icons';
 
 export default ( { attributes, setAttributes } ) => {
-	const { slides = [] } = attributes;
+	const {
+		slides = [],
+		autoSlide,
+		autoplaySpeed,
+		infiniteLoop,
+		isshowpagination,
+	} = attributes;
 
 	// check if the url has http:'' protocal at first
 	function addhttp( url ) {
@@ -16,12 +22,17 @@ export default ( { attributes, setAttributes } ) => {
 		return url;
 	}
 
-	// console.log( 'slides in save', slides );
-
 	return (
 		<div>
 			<div className="swiper-container">
-				<div className="swiper-wrapper" data-slides={JSON.stringify( slides )}>
+				<div
+					className="swiper-wrapper"
+					data-slides={JSON.stringify( slides )}
+					data-isslide={JSON.stringify( autoSlide )}
+					data-isshowpagination={JSON.stringify( isshowpagination )}
+					data-autoplayspeed={JSON.stringify( autoplaySpeed )}
+					data-infiniteloop={JSON.stringify( infiniteLoop )}
+				>
 					{slides.map( ( slide, i ) => {
 						const { image, title, content, btnLabel, btnUrl, embedUrl } = slide;
 						const styles = {

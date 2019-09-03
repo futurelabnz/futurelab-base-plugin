@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-05-10 09:08:46
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-20 10:29:56
+ * @Last Modified time: 2019-09-03 15:04:38
  */
 
 // TODO: Fix the content width on backend editor, the content can go out side of div...
@@ -77,6 +77,22 @@ registerBlockType( 'futurelab/block-fl-block-slider2', {
 			source: 'attribute',
 			attribute: 'data-slides',
 			selector: '.swiper-wrapper',
+		},
+		autoSlide: {
+			type: 'boolean',
+			default: true,
+		},
+		autoplaySpeed: {
+			type: 'number',
+			default: 5000,
+		},
+		infiniteLoop: {
+			type: 'boolean',
+			default: true,
+		},
+		isshowpagination: {
+			type: 'boolean',
+			default: true,
 		},
 	},
 	// Made edit as a class component for react lifecycle(componentDidMount)
