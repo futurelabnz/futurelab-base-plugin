@@ -5,6 +5,8 @@ const { Button, Modal, TextControl } = wp.components;
 const { RichText, URLInput, InnerBlocks } = wp.editor;
 const { Component } = wp.element;
 
+import Inspector from './inspector';
+
 export default class extends Component {
 	constructor( props ) {
 		super( ...arguments );
@@ -17,7 +19,8 @@ export default class extends Component {
 	render() {
 		//JSX to return
 		const { attributes, setAttributes, className } = this.props;
-		return (
+		return [
+			<Inspector {...this.props} />,
 			<div className={className}>
 				<div className="swiper-gallery-container swiper-container">
 					<div className="swiper-wrapper">
@@ -28,7 +31,7 @@ export default class extends Component {
 					<div className="swiper-button-next" />
 					<div className="swiper-button-prev" />
 				</div>
-			</div>
-		);
+			</div>,
+		];
 	}
 }
