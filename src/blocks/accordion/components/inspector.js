@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-08-23 14:07:43
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-23 14:18:31
+ * @Last Modified time: 2019-09-03 12:08:13
  */
 
 /**
@@ -31,16 +31,6 @@ export default class Inspector extends Component {
 		return (
 			<InspectorControls key="inspector">
 				<PanelBody>
-					<RangeControl
-						label={__( 'Title Font Size' )}
-						value={this.props.attributes.accordionFontSize}
-						onChange={value =>
-							this.props.setAttributes( { accordionFontSize: value } )
-						}
-						min={14}
-						max={24}
-						step={1}
-					/>
 
 					<ToggleControl
 						label={__( 'Open by default' )}

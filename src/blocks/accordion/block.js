@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-08-23 14:02:12
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-23 15:38:14
+ * @Last Modified time: 2019-09-03 12:12:04
  */
 
 // Import block dependencies and components
@@ -35,10 +35,6 @@ const blockAttributes = {
 	},
 	accordionAlignment: {
 		type: 'string',
-	},
-	accordionFontSize: {
-		type: 'number',
-		default: null,
 	},
 	accordionOpen: {
 		type: 'boolean',

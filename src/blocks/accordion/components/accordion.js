@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-08-23 14:07:59
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-23 14:51:55
+ * @Last Modified time: 2019-09-03 12:11:45
  */
 
 /**
@@ -31,10 +31,7 @@ export default class Accordion extends Component {
 					this.props.attributes.accordionAlignment ?
 						'fl-align-' + this.props.attributes.accordionAlignment :
 						undefined,
-					'fl-block-accordion',
-					this.props.attributes.accordionFontSize ?
-						'fl-font-size-' + this.props.attributes.accordionFontSize :
-						null
+					'fl-block-accordion'
 				)}
 			>
 				{this.props.children}
