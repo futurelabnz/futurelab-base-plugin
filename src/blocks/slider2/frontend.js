@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-05-10 09:09:40
  * @Last Modified by: Hank
- * @Last Modified time: 2019-07-23 17:14:37
+ * @Last Modified time: 2019-09-03 13:26:36
  */
 
 ( function() {
@@ -25,14 +25,6 @@
 						left: 0,
 						behavior: 'smooth',
 					} );
-					// window.scrollTo( 0, 500 );
-					// if ( window.pageYOffset < scrollDownHeight ) {
-					// 	window.scrollBy( 0, 10 );
-					// 	setTimeout( scroll, 0 );
-					// }
-					// if ( window.pageYOffset > scrollDownHeight ) {
-					// 	window.scrollTo( 0, 525 );
-					// }
 				}() );
 			}
 			btnScrollDown.addEventListener( 'click', scrollDown );

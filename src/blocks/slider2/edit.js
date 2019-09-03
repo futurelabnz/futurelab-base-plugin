@@ -7,6 +7,7 @@ const { Component } = wp.element;
 
 import { Slide, LeftArrow, RightArrow } from './components/slider';
 import { scrolldownArrow } from './icons';
+import Inspector from './inspector';
 
 export default class extends Component {
 	constructor( props ) {
@@ -197,9 +198,15 @@ export default class extends Component {
 			isEditModalOpen,
 			btnUrl,
 			embedUrl,
+			autoSlide,
+			autoplaySpeed,
+			infiniteLoop,
 		} = attributes;
 		const { slidesArray } = this.state;
-		return (
+		console.log( autoSlide, autoplaySpeed, infiniteLoop );
+		return [
+			<Inspector {...this.props} />,
+
 			<div className={className}>
 				<div className="slider">
 					<div
@@ -430,7 +437,7 @@ export default class extends Component {
 						</Modal>
 					)}
 				</div>
-			</div>
-		);
+			</div>,
+		];
 	}
 }
