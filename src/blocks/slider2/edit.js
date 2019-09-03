@@ -203,7 +203,6 @@ export default class extends Component {
 			infiniteLoop,
 		} = attributes;
 		const { slidesArray } = this.state;
-		console.log( autoSlide, autoplaySpeed, infiniteLoop );
 		return [
 			<Inspector {...this.props} />,
 
