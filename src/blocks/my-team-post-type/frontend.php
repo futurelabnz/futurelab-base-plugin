@@ -2,22 +2,14 @@
 function my_team_post_type_render_callback($attributes, $content)
 {
     $args = array(
-        // 'numberposts' => 3,
+        'numberposts' => -1, // pull all team members
         'post_type' => 'fl_team_member',
         'post_status' => 'publish',
     );
 
-    // print_r('<pre>');
-    // print_r($attributes);
-    // print_r('</pre>');
-
     if (isset($attributes['postType'])) {
         $args['post_type'] = $attributes['postType'];
     }
-
-    // print_r('<pre>');
-    // print_r($args);
-    // print_r('</pre>');
 
     $recent_posts = get_posts($args);
 
@@ -30,79 +22,28 @@ function my_team_post_type_render_callback($attributes, $content)
         $image_alt          = get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true);
         $title            = get_the_title($post_id);
         $team_position      =    get_post_meta($post->ID, 'fl_team_position', true);
-        $post_content      =    get_post_field('post_content', $post->ID);
-        // $team_facebook      =    get_post_meta($post->ID, 'fl_team_facebook', true);
-        // $team_instagram      =    get_post_meta($post->ID, 'fl_team_instagram', true);
-        // $team_linkedin      =    get_post_meta($post->ID, 'fl_team_linkedin', true);
-        // $team_twitter      =    get_post_meta($post->ID, 'fl_team_twitter', true);
-        // $team_email          =    get_post_meta($post->ID, 'fl_team_email', true);
-
+        $post_content      =    get_post_field('post_excerpt', $post->ID);
+        $post_link      =    get_permalink($post->ID);
 
         $list_items_markup .= sprintf(
             '<div class="cell">
                 <div class="my-team-post-type-cell-content">
-				<img src="%1$s" srcSet="%2$s" alt="%3$s" />',
+                <a href="%1$s"><img src="%2$s" srcSet="%3$s" alt="%4$s" /></a>',
+            $post_link,
             $image_url,
             $image_srcset_url,
             $image_alt
         );
 
         $list_items_markup .= sprintf(
-            '<h3 class="team-title">%1$s</h3>
-			<h3 class="team-position">%2$s</h3>
-			<div class="team-content">%3$s</div>',
+            '<a href="%1$s"><h3 class="team-title">%2$s</h3></a>
+			<a href="%1$s"><h3 class="team-position">%3$s</h3></a>
+            <div class="team-content">%4$s</div>',
+            $post_link,
             $title,
             $team_position,
             $post_content
         );
-
-        // $list_items_markup .= sprintf('<div class="grid-x grid-margin-x">');
-
-        // if (isset($team_facebook[0])) {
-        //     $list_items_markup .= sprintf(
-        //         '<div class="cell auto social_icon_container">
-		// 			<a href="%1$s">
-		// 				<i class="fa fa-facebook"></i>
-		// 			</a>
-		// 		</div>',
-        //         $team_facebook
-        //     );
-        // }
-
-        // if (isset($team_twitter[0])) {
-        //     $list_items_markup .= sprintf(
-        //         '<div class="cell auto social_icon_container">
-		// 			<a href="%1$s">
-		// 				<i class="fa fa-twitter"></i>
-		// 			</a>
-		// 	</div>',
-        //         $team_twitter
-        //     );
-        // }
-
-        // if (isset($team_instagram[0])) {
-        //     $list_items_markup .= sprintf(
-        //         '<div class="cell auto social_icon_container">
-		// 			<a href="%1$s">
-		// 				<i class="fa fa-instagram"></i>
-		// 			</a>
-		// 	</div>',
-        //         $team_instagram
-        //     );
-        // }
-
-        // if (isset($team_linkedin[0])) {
-        //     $list_items_markup .= sprintf(
-        //         '<div class="cell auto social_icon_container">
-		// 			<a href="%1$s">
-		// 				<i class="fa fa-linkedin"></i>
-		// 			</a>
-		// 	</div>',
-        //         $team_linkedin
-        //     );
-        // }
-
-        // $list_items_markup .= sprintf('</div>');
 
         $list_items_markup .= sprintf('</div>');
 
@@ -127,7 +68,6 @@ function my_team_post_type_render_callback($attributes, $content)
 function my_team_post_type_dynamic()
 {
     register_block_type('futurelab/block-my-team-post-type', array(
-        // 'editor_script' => 'gutenberg-examples-05',
         'render_callback' => 'my_team_post_type_render_callback',
         'attributes'      => array(
             'postType'      => array(
