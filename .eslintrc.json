@@ -1,12 +1,7 @@
 {
 	"root": true,
 	"parser": "babel-eslint",
-	"extends": [
-		"wordpress",
-		"plugin:react/recommended",
-		"plugin:jsx-a11y/recommended",
-		"plugin:jest/recommended"
-	],
+	"extends": ["wordpress", "plugin:react/recommended", "plugin:jsx-a11y/recommended", "plugin:jest/recommended"],
 	"env": {
 		"browser": false,
 		"es6": true,
@@ -34,7 +29,7 @@
 	},
 	"rules": {
 		"linebreak-style": "off",
-		"array-bracket-spacing": ["error", "always"],
+		"array-bracket-spacing": ["error", "never"],
 		"brace-style": ["error", "1tbs"],
 		"camelcase": ["error", { "properties": "never" }],
 		"comma-dangle": ["error", "always-multiline"],
@@ -87,8 +82,7 @@
 		"no-restricted-syntax": [
 			"error",
 			{
-				"selector":
-					"ImportDeclaration[source.value=/^@wordpress\\u002F.+\\u002F/]",
+				"selector": "ImportDeclaration[source.value=/^@wordpress\\u002F.+\\u002F/]",
 				"message": "Path access on WordPress dependencies is not allowed."
 			},
 			{
@@ -124,18 +118,15 @@
 				"message": "Use @wordpress/utils as import path instead."
 			},
 			{
-				"selector":
-					"CallExpression[callee.name=/^__|_n|_x$/]:not([arguments.0.type=/^Literal|BinaryExpression$/])",
+				"selector": "CallExpression[callee.name=/^__|_n|_x$/]:not([arguments.0.type=/^Literal|BinaryExpression$/])",
 				"message": "Translate function arguments must be string literals."
 			},
 			{
-				"selector":
-					"CallExpression[callee.name=/^_n|_x$/]:not([arguments.1.type=/^Literal|BinaryExpression$/])",
+				"selector": "CallExpression[callee.name=/^_n|_x$/]:not([arguments.1.type=/^Literal|BinaryExpression$/])",
 				"message": "Translate function arguments must be string literals."
 			},
 			{
-				"selector":
-					"CallExpression[callee.name=_nx]:not([arguments.2.type=/^Literal|BinaryExpression$/])",
+				"selector": "CallExpression[callee.name=_nx]:not([arguments.2.type=/^Literal|BinaryExpression$/])",
 				"message": "Translate function arguments must be string literals."
 			}
 		],
@@ -175,17 +166,17 @@
 		"semi-spacing": "error",
 		"space-before-blocks": ["error", "always"],
 		"space-before-function-paren": ["error", "never"],
-		"space-in-parens": ["error", "always"],
+		"space-in-parens": ["error", "never"],
 		"space-infix-ops": ["error", { "int32Hint": false }],
 		"space-unary-ops": [
 			"error",
 			{
 				"overrides": {
-					"!": true
+					"!": false
 				}
 			}
 		],
-		"template-curly-spacing": ["error", "always"],
+		"template-curly-spacing": ["error", "never"],
 		"valid-jsdoc": ["error", { "requireReturn": false }],
 		"valid-typeof": "error",
 		"yoda": "off"
