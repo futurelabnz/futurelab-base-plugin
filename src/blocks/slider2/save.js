@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/aria-role */
 /* eslint-disable camelcase */
 
 import { scrolldownArrow } from './icons';
 
-export default ( { attributes, setAttributes } ) => {
+export default ({ attributes, setAttributes }) => {
 	const {
 		slides = [],
 		autoSlide,
@@ -12,10 +13,10 @@ export default ( { attributes, setAttributes } ) => {
 	} = attributes;
 
 	// check if the url has http:'' protocal at first
-	function addhttp( url ) {
+	function addhttp(url) {
 		let newUrl = '';
-		if ( ! url.match( /^(http|https)/ ) ) {
-			newUrl = `http://${ url }`;
+		if (!url.match(/^(http|https)/)) {
+			newUrl = `http://${url}`;
 			return newUrl;
 		}
 
@@ -27,16 +28,16 @@ export default ( { attributes, setAttributes } ) => {
 			<div className="swiper-container">
 				<div
 					className="swiper-wrapper"
-					data-slides={JSON.stringify( slides )}
-					data-isslide={JSON.stringify( autoSlide )}
-					data-isshowpagination={JSON.stringify( isshowpagination )}
-					data-autoplayspeed={JSON.stringify( autoplaySpeed )}
-					data-infiniteloop={JSON.stringify( infiniteLoop )}
+					data-slides={JSON.stringify(slides)}
+					data-isslide={JSON.stringify(autoSlide)}
+					data-isshowpagination={JSON.stringify(isshowpagination)}
+					data-autoplayspeed={JSON.stringify(autoplaySpeed)}
+					data-infiniteloop={JSON.stringify(infiniteLoop)}
 				>
-					{slides.map( ( slide, i ) => {
+					{slides.map((slide, i) => {
 						const { image, title, content, btnLabel, btnUrl, embedUrl } = slide;
 						const styles = {
-							backgroundImage: `url(${ image })`,
+							backgroundImage: `url(${image})`,
 						};
 						return (
 							<div key={i} className="swiper-slide grid-x" style={styles}>
@@ -50,17 +51,23 @@ export default ( { attributes, setAttributes } ) => {
 											<h2
 												className={'slide-title'}
 												dangerouslySetInnerHTML={{ __html: title }}
+												// add aria hidden to fix narrator read first slide two times when infinity loop.
+												aria-hidden={i === 0 ? 'false' : 'true'}
 											>
 												{/* {title} */}
 											</h2>
 											<p
 												className={'slide-content'}
 												dangerouslySetInnerHTML={{ __html: content }}
+												// add aria hidden to fix narrator read first slide two times when infinity loop.
+												aria-hidden={i === 0 ? 'false' : 'true'}
 											/>
 											<div className={'slide-btn-container'}>
 												<a
 													className={'slide-btn fl-button'}
-													href={addhttp( `${ btnUrl }` )}
+													href={addhttp(`${btnUrl}`)}
+													// add aria hidden to fix narrator read first slide two times when infinity loop.
+													aria-hidden={i === 0 ? 'false' : 'true'}
 												>
 													{btnLabel}
 												</a>
@@ -76,7 +83,7 @@ export default ( { attributes, setAttributes } ) => {
 												<iframe
 													title="embedVideo"
 													className="slide-video"
-													src={embedUrl ? addhttp( `${ embedUrl }` ) : ''}
+													src={embedUrl ? addhttp(`${embedUrl}`) : ''}
 													// style={embedUrl ? '' : 'display: none'}
 													frameBorder="0"
 													allow="autoplay; encrypted-media"
@@ -87,7 +94,7 @@ export default ( { attributes, setAttributes } ) => {
 								</div>
 							</div>
 						);
-					} )}
+					})}
 				</div>
 				<div className="swiper-pagination" />
 				<div className="swiper-button-next" />
@@ -96,6 +103,6 @@ export default ( { attributes, setAttributes } ) => {
 					<span style={{ position: 'absolute' }}>{scrolldownArrow}</span>
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 };
