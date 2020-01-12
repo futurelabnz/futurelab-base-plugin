@@ -4,7 +4,7 @@
  * Description: fl-block-base — is a Gutenberg plugin created by futurelab.
  * Author: futurelab
  * Author URI: https://futurelab.co.nz/
- * Version: 1.0.0
+ * Version: 1.0.1
  *
  * @package futurelab
  */

@@ -2,16 +2,16 @@
  * @Author: Hank 
  * @Date: 2019-08-19 10:08:01 
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-19 10:08:45
+ * @Last Modified time: 2020-01-13 11:54:29
  */
 
 // Block reuse styles.
 
 // fix for duplicated, alignwide and alignfull
 .alignwide {
-	padding-right: 0.9375rem;
-	padding-left: 0.9375rem;
-	max-width: 75rem;
+	// padding-right: 0.9375rem; // removed to avoid overwrite padding in child themes...
+	// padding-left: 0.9375rem;
+	max-width: 75rem; // max-width normally will be overwriten in theme.
 	margin: 0 auto;
 }
 
