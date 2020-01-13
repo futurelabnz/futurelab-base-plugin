@@ -52,7 +52,7 @@ export default ({ attributes, setAttributes }) => {
 												className={'slide-title'}
 												dangerouslySetInnerHTML={{ __html: title }}
 												// add aria hidden to fix narrator read first slide two times when infinity loop.
-												aria-hidden={i === 0 ? 'false' : 'true'}
+												// aria-hidden={i === 0 ? 'false' : 'true'}
 											>
 												{/* {title} */}
 											</h2>
@@ -60,14 +60,14 @@ export default ({ attributes, setAttributes }) => {
 												className={'slide-content'}
 												dangerouslySetInnerHTML={{ __html: content }}
 												// add aria hidden to fix narrator read first slide two times when infinity loop.
-												aria-hidden={i === 0 ? 'false' : 'true'}
+												// aria-hidden={i === 0 ? 'false' : 'true'}
 											/>
 											<div className={'slide-btn-container'}>
 												<a
 													className={'slide-btn fl-button'}
 													href={addhttp(`${btnUrl}`)}
 													// add aria hidden to fix narrator read first slide two times when infinity loop.
-													aria-hidden={i === 0 ? 'false' : 'true'}
+													// aria-hidden={i === 0 ? 'false' : 'true'}
 												>
 													{btnLabel}
 												</a>
