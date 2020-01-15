@@ -11,7 +11,9 @@ All notable changes to this project will be documented in this file.
 - Changelog in README
 
 ### Fixed
-- Narrator screen reader read first slider two time when infinity loop
+- Narrator screen reader read first slider two time when infinity loop ( moved the fix code from base plugin to base theme )
+- layout-container has max-width of 1600, changed to 7680
+- slider style fix
 
 ### Removed
 - padding-left and padding-right in alignwide class

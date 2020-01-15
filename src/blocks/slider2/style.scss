@@ -4,7 +4,7 @@
  * CSS for both Frontend+Backend.
  */
 
-@import "../../common.scss";
+@import '../../common.scss';
 
 .wp-block-futurelab-block-fl-block-slider2 {
 	margin: 0px auto 4em;
@@ -13,7 +13,6 @@
 		height: auto;
 		.swiper-wrapper {
 			.swiper-slide {
-
 				width: 100%;
 				text-align: center;
 				font-size: 18px;
@@ -31,6 +30,10 @@
 							justify-content: center;
 							text-align: left;
 							margin-top: 120px;
+
+							@include tablets-all {
+								text-align: center;
+							}
 						}
 						.slide-content {
 							width: 100%;
@@ -149,13 +152,13 @@
 		}
 		// overwrite swiper style
 		.swiper-pagination {
-			clear: both;
-			margin: 5px;
-			position: absolute;
-			left: 10%;
+			position: relative;
+			padding-left: 0;
+			left: 0;
 			bottom: 80px;
-			right: auto;
-			width: auto;
+			max-width: 1140px;
+			margin: auto;
+			text-align: left;
 			.swiper-pagination-bullet {
 				margin: 0 4px;
 				background: var(--palettedark);
@@ -166,22 +169,20 @@
 		}
 
 		@include mobiles-all {
-			// overwrite swiper style
+			// center swiper pagination on mobile
 			.swiper-pagination {
-				clear: both;
-				margin: 5px;
-				position: absolute;
-				left: 46%;
-				bottom: 80px;
-				right: auto;
-				width: auto;
-				.swiper-pagination-bullet {
-					margin: 0 4px;
-					background: var(--palettedark);
-					width: 12px;
-					height: 12px;
-					font-size: 12px;
-				}
+				bottom: 50px;
+				text-align: center;
+			}
+		}
+
+		@include tablets-all {
+			// center swiper pagination on tablets
+			.swiper-pagination {
+				padding-left: 10px;
+				padding-right: 10px;
+				bottom: 50px;
+				text-align: center;
 			}
 		}
 
@@ -204,7 +205,7 @@
 		}
 		.scrolldown-arrow {
 			margin: auto;
-			margin-top: -25px;
+			margin-top: -53px;
 			z-index: 99;
 			position: relative;
 		}

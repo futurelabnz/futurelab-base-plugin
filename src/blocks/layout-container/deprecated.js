@@ -21,7 +21,6 @@ const attributes = {
 
 const layoutContainerSave = ( { attributes, setAttributes } ) => {
 	const { backgroundColor, imageUrl } = attributes;
-	console.log( 'backgroundColor', backgroundColor );
 	return (
 		<div
 			className={'fl-layout-container'}
