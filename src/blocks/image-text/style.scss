@@ -4,17 +4,12 @@
  * CSS for both Frontend+Backend.
  */
 
-@import "../../common.scss";
+@import '../../common.scss';
 .wp-block-futurelab-block-fl-block-image-text {
-	// background: $red;
-	// border: 0.2rem solid $black;
-	// color: $black;
 	margin: 0 auto;
-	// max-width: 740px;
-	// padding: 2rem;
 	.callout {
 		&::after {
-			content: "";
+			content: '';
 			@include css-triangle(1rem, red, down);
 		}
 	}
@@ -34,19 +29,32 @@
 	);
 	.wp-block-media-text__media {
 		// padding: 30px;
+		height: 100%;
 		img {
-			// margin-top: 1.5rem;
 			box-shadow: $box-shadow;
 			border-radius: 0px;
 			width: 90%;
-			height: 450px; // TODO:this is the quick fix, have to find a way to fill the div
-			// object-fit: cover;
-			// width: 100%;
+			height: 100%; // TODO:this is the quick fix, have to find a way to fill the div
+			object-fit: cover;
+			@include mobiles-all {
+				height: auto;
+			}
 		}
 	}
 
 	.text-content {
-		padding: 30px 80px 30px 30px;
+		padding: 30px 80px 0px 30px;
+		height: auto;
+		@include mobiles-all {
+			padding: 0.9375rem;
+		}
+		.wp-block-button {
+			margin-top: 0em;
+			margin-bottom: 0em;
+			.wp-block-button__link {
+
+			}
+		}
 	}
 	/* Header width */
 	@media print, screen and (min-width: 40em) {
