@@ -37,6 +37,7 @@
 			height: 100%; // TODO:this is the quick fix, have to find a way to fill the div
 			object-fit: cover;
 			@include mobiles-all {
+				width: 100%;
 				height: auto;
 			}
 		}
