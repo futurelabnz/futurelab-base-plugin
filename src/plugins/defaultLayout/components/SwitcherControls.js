@@ -6,27 +6,25 @@ const { withSelect, dispatch } = wp.data;
 import SwitcherButton from './SwitcherButton';
 import ResetControls from './ResetControls';
 
-const SwitcherControls = ( { blocks, icons, layouts } ) => {
-	const blockIds = blocks.map( block => block.clientId );
+const SwitcherControls = ({ blocks, icons, layouts }) => {
+	const blockIds = blocks.map(block => block.clientId);
 	return (
 		<Fragment>
-			<PanelBody title={__( 'Default Layouts', '' )} opened>
+			<PanelBody title={__('Page Layouts', '')} opened>
 				<PanelRow className="layout-switcher">
 					<SwitcherButton
-						label={__( 'Layout 1', '' )}
-						icon={icons.hero}
+						label={__('Home', '')}
 						blockIds={blockIds}
-						layout={layouts.hero}
+						layout={layouts.home}
 					/>
 					<SwitcherButton
-						label={__( 'Layout 2', '' )}
-						icon={icons.featured}
+						label={__('My Team', '')}
 						blockIds={blockIds}
-						layout={layouts.featured}
+						layout={layouts.myteam}
 					/>
 				</PanelRow>
 			</PanelBody>
-			<PanelBody title={__( 'Reset Layout', '' )}>
+			<PanelBody title={__('Reset Layout', '')}>
 				<PanelRow>
 					<ResetControls layout={layouts.default} />
 				</PanelRow>
@@ -34,8 +32,8 @@ const SwitcherControls = ( { blocks, icons, layouts } ) => {
 		</Fragment>
 	);
 };
-export default withSelect( select => {
+export default withSelect(select => {
 	return {
-		blocks: select( 'core/editor' ).getBlocks(),
+		blocks: select('core/editor').getBlocks(),
 	};
-} )( SwitcherControls );
+})(SwitcherControls);

@@ -4,26 +4,26 @@ const { Button, Modal } = wp.components;
 const { withDispatch } = wp.data;
 const { compose, withState } = wp.compose;
 
-const ResetControls = ( {
+const ResetControls = ({
 	isOpen,
 	setState,
 	layout,
 	resetBlocks,
 	insertBlocks,
-} ) => {
+}) => {
 	return (
 		<Fragment>
-			<Button isLink isDestructive onClick={() => setState( { isOpen: true } )}>
-				{__( 'Reset Layout', '' )}
+			<Button isLink isDestructive onClick={() => setState({ isOpen: true })}>
+				{__('Reset Layout', '')}
 			</Button>
 			{isOpen && (
 				<Modal
 					className="layout-switcher-reset"
-					title={__( 'Warning!', '' )}
-					onRequestClose={() => setState( { isOpen: false } )}
+					title={__('Warning!', '')}
+					onRequestClose={() => setState({ isOpen: false })}
 				>
 					<p>
-						{__( 'This action will remove all blocks', '' )}
+						{__('This action will remove all blocks', '')}
 						<strong>
 							{__(
 								'This can be undone before leaving the page with the Undo option.',
@@ -35,12 +35,12 @@ const ResetControls = ( {
 						<Button
 							isDefault
 							onClick={() => {
-								resetBlocks( [] );
-								insertBlocks( layout );
-								setState( { isOpen: false } );
+								resetBlocks([]);
+								insertBlocks(layout);
+								setState({ isOpen: false });
 							}}
 						>
-							{__( 'Reset Layout', '' )}
+							{__('Reset Layout', '')}
 						</Button>
 					</p>
 				</Modal>
@@ -49,14 +49,14 @@ const ResetControls = ( {
 	);
 };
 export default compose(
-	withState( {
+	withState({
 		isOpen: false,
-	} ),
-	withDispatch( dispatch => {
-		const { resetBlocks, insertBlocks } = dispatch( 'core/editor' );
+	}),
+	withDispatch(dispatch => {
+		const { resetBlocks, insertBlocks } = dispatch('core/editor');
 		return {
 			resetBlocks,
 			insertBlocks,
 		};
-	} )
-)( ResetControls );
+	})
+)(ResetControls);

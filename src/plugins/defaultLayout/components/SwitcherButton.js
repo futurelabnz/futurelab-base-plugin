@@ -1,7 +1,7 @@
 const { Icon } = wp.components;
 const { withDispatch, select } = wp.data;
 
-const SwitcherButton = ( {
+const SwitcherButton = ({
 	label,
 	icon,
 	layout,
@@ -10,14 +10,13 @@ const SwitcherButton = ( {
 	resetBlocks,
 	insertBlock,
 	insertBlocks,
-} ) => {
+}) => {
 	return (
 		<button
 			onClick={() => {
-				console.log( label );
 				// removeBlocks(blockIds);
-				resetBlocks( [] );
-				insertBlocks( layout );
+				resetBlocks([]);
+				insertBlocks(layout);
 			}}
 		>
 			<Icon icon={icon} />
@@ -26,7 +25,7 @@ const SwitcherButton = ( {
 	);
 };
 
-export default withDispatch( dispatch => {
+export default withDispatch(dispatch => {
 	const { removeBlocks, resetBlocks, insertBlocks, insertBlock } = dispatch(
 		'core/editor'
 	);
@@ -36,4 +35,4 @@ export default withDispatch( dispatch => {
 		insertBlock,
 		insertBlocks,
 	};
-} )( SwitcherButton );
+})(SwitcherButton);

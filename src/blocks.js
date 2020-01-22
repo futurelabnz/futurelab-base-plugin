@@ -27,7 +27,7 @@ import './blocks/content-carousel/components/content-carousel-item/block';
 import './blocks/content-carousel/components/slide/index';
 
 // regist plugins
-// import './plugins/defaultLayout/index.js';
+import './plugins/defaultLayout/index.js';
 
 // regist extend style
 import './extend-styles/block-styles.js';
