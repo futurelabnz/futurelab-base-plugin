@@ -1,10 +1,15 @@
+/**
+ * block is unneeded
+ * because gutenberg itself has add feature to change column width
+ */
+
 /* eslint-disable prefer-const */
 /* eslint-disable no-console */
 /*
  * @Author: Hank
  * @Date: 2019-05-15 12:00:17
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-20 10:31:32
+ * @Last Modified time: 2020-01-23 12:23:54
  */
 
 //  Import CSS.
@@ -18,16 +23,16 @@ const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 
 // TODO: fix admin editor display innerblock grid issue
-registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
+registerBlockType('futurelab/block-fl-block-flex-gird', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'fl flex gird dev' ), // Block title.
-	description: __( 'futurelab flex grild block' ), // Block description.
+	title: __('fl flex gird'), // Block title.
+	description: __('futurelab flex grild block'), // Block description.
 	icon: {
 		background: 'rgba(225, 225, 225, 0.25)',
 		src: 'wordpress-alt',
 	}, // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'fl-Blocks', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
-	keywords: [ __( 'futurelab slider block' ) ],
+	keywords: [__('futurelab slider block')],
 
 	attributes: {
 		// get data from HTML
@@ -44,8 +49,8 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 	},
 	// Made edit as a class component for react lifecycle(componentDidMount)
 	edit: class extends Component {
-		constructor( props ) {
-			super( ...arguments );
+		constructor(props) {
+			super(...arguments);
 			this.props = props;
 			this.state = {
 				isShowCustomizeModal: false,
@@ -62,13 +67,13 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 			const { select } = wp.data;
 
 			// select parentBlock
-			const parentBlock = select( 'core/editor' ).getBlocksByClientId(
+			const parentBlock = select('core/editor').getBlocksByClientId(
 				clientId
-			)[ 0 ];
+			)[0];
 
 			// select InnerBlock
 			const childBlocks = parentBlock.innerBlocks;
-			console.log( 'childBlocks', childBlocks );
+			console.log('childBlocks', childBlocks);
 
 			// get data from InnerBlock
 			let newLayoutArray = [];
@@ -78,26 +83,26 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 			// 	newLayoutArray.push( layoutValue );
 			// } );
 
-			childBlocks.map( ( item, index ) => {
+			childBlocks.map((item, index) => {
 				const { className } = item.attributes;
-				console.log( 'split classname', className );
-				const layoutValue = className.split( ' ' )[ 0 ].split( '-' )[ 1 ];
-				newLayoutArray.push( layoutValue );
-			} );
+				console.log('split classname', className);
+				const layoutValue = className.split(' ')[0].split('-')[1];
+				newLayoutArray.push(layoutValue);
+			});
 
-			this.setState( { layoutArray: newLayoutArray } );
+			this.setState({ layoutArray: newLayoutArray });
 		}
 
 		// selected layout event handler
 		selectLayoutHandler = layoutString => {
-			console.log( 'layoutString', layoutString );
-			const layoutArray = layoutString.split( '-' );
-			console.log( 'layoutArray', layoutArray );
+			console.log('layoutString', layoutString);
+			const layoutArray = layoutString.split('-');
+			console.log('layoutArray', layoutArray);
 
 			// setState for component itself
-			this.setState( { layoutArray: layoutArray } );
+			this.setState({ layoutArray: layoutArray });
 			// setToAttributes for save function
-			this.props.setAttributes( { layoutArray: layoutArray } );
+			this.props.setAttributes({ layoutArray: layoutArray });
 		};
 
 		// render place holder for user to choose layout
@@ -107,8 +112,8 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 			return (
 				<Fragment>
 					<Placeholder
-						label={__( 'Grid' )}
-						instructions={__( 'Select one layout to get started.' )}
+						label={__('Grid')}
+						instructions={__('Select one layout to get started.')}
 						className="grid-placeholder"
 					>
 						<div className={'button-container'}>
@@ -116,7 +121,7 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 							<Button
 								isDefault
 								onClick={() => {
-									this.selectLayoutHandler( '6-6' );
+									this.selectLayoutHandler('6-6');
 								}}
 							>
 								6-6
@@ -124,7 +129,7 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 							<Button
 								isDefault
 								onClick={() => {
-									this.selectLayoutHandler( '4-8' );
+									this.selectLayoutHandler('4-8');
 								}}
 							>
 								4-8
@@ -132,7 +137,7 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 							<Button
 								isDefault
 								onClick={() => {
-									this.selectLayoutHandler( '8-4' );
+									this.selectLayoutHandler('8-4');
 								}}
 							>
 								8-4
@@ -140,7 +145,7 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 							<Button
 								isDefault
 								onClick={() => {
-									this.selectLayoutHandler( '4-4-4' );
+									this.selectLayoutHandler('4-4-4');
 								}}
 							>
 								4-4-4
@@ -148,7 +153,7 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 							<Button
 								isDefault
 								onClick={() => {
-									this.selectLayoutHandler( '3-3-3-3' );
+									this.selectLayoutHandler('3-3-3-3');
 								}}
 							>
 								3-3-3-3
@@ -156,7 +161,7 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 							<Button
 								isDefault
 								onClick={() => {
-									this.setState( { isShowCustomizeModal: true } );
+									this.setState({ isShowCustomizeModal: true });
 								}}
 							>
 								customize
@@ -169,13 +174,13 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 							<Modal
 								title="Input your colomn sizes"
 								onRequestClose={() =>
-									this.setState( { isShowCustomizeModal: false } )
+									this.setState({ isShowCustomizeModal: false })
 								}
 							>
 								<RichText
 									placeholder="eg. 2-2-2-2-2-2"
 									onChange={value => {
-										console.log( value );
+										console.log(value);
 									}}
 									value={this.state.cutomizeColumn}
 								/>
@@ -256,17 +261,17 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 			// console.log( 'layoutArray', layoutArray );
 			// console.log( 'template before', template );
 
-			layoutArray.map( ( item, index ) => {
-				template.push( [
+			layoutArray.map((item, index) => {
+				template.push([
 					'futurelab/block-fl-block-flex-gird-column',
 					{
-						className: `large-${ item } medium-${ item } cell`,
+						className: `large-${item} medium-${item} cell`,
 						attributesTest: '123',
-						width: `${ item }`,
+						width: `${item}`,
 					},
-					[ [ 'core/paragraph', { content: `Column${ item }` } ] ],
-				] );
-			} );
+					[['core/paragraph', { content: `Column${item}` }]],
+				]);
+			});
 
 			// console.log( 'template after', template );
 
@@ -274,11 +279,11 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 				<div className={className}>
 					<div
 						className="grid-x grid-padding-x fl-selected-layout"
-						// style={{ backgroundColor: 'red' }}
+					// style={{ backgroundColor: 'red' }}
 					>
 						<InnerBlocks
 							template={template}
-							allowedBlocks={[ 'futurelab/block-fl-block-flex-gird-column' ]}
+							allowedBlocks={['futurelab/block-fl-block-flex-gird-column']}
 							// templateLock={true}
 							renderAppender={() => null}
 						/>
@@ -309,8 +314,8 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 		render() {
 			const { attributes, setAttributes, className } = this.props;
 			const { layoutArray } = this.state;
-			console.log( 'layoutArray', layoutArray );
-			console.log( 'setAttributes', setAttributes );
+			console.log('layoutArray', layoutArray);
+			console.log('setAttributes', setAttributes);
 
 			return layoutArray.length > 0 ?
 				this.renderSelectLayout() :
@@ -318,14 +323,14 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 		}
 	},
 
-	save: ( { attributes, setAttributes } ) => {
+	save: ({ attributes, setAttributes }) => {
 		const { layoutArray, layoutSelector } = attributes;
-		console.log( 'layoutArray', layoutArray );
-		console.log( 'setAttributes', setAttributes );
-		console.log( 'layoutSelector', layoutSelector );
+		console.log('layoutArray', layoutArray);
+		console.log('setAttributes', setAttributes);
+		console.log('layoutSelector', layoutSelector);
 		return (
 			<div
-				// className={'grid-x grid-padding-x fl-selected-layout'}
+			// className={'grid-x grid-padding-x fl-selected-layout'}
 			>
 				<InnerBlocks.Content />
 				{/* {layoutArray.map( ( item, index ) => {
@@ -345,4 +350,4 @@ registerBlockType( 'futurelab/block-fl-block-flex-gird1', {
 		align: true,
 		alignWide: true,
 	},
-} );
+});

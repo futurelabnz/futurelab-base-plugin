@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Changelog in README
+- layout switcher
 
 ### Fixed
 - Narrator screen reader read first slider two time when infinity loop ( moved the fix code from base plugin to base theme )
