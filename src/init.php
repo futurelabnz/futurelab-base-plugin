@@ -111,8 +111,9 @@ add_action("enqueue_block_editor_assets", 'enqueue_block_filters');
 function futurelab_enqueue_editor_assets()
 {
 
-	wp_enqueue_style('futurelab-base-swiper-css', get_template_directory_uri() . '/assets/swiper/css/swiper.min.css', array(), '1.0');
-	wp_enqueue_script('futurelab-base-swiper-js', get_template_directory_uri() . '/assets/swiper/js/swiper.min.js', array(), '1.0');
+	// comment below out for loading swiper css and js in theme, not in plugin block, so fl plugin and fl theme is tightly coupled.
+	// wp_enqueue_style('futurelab-base-swiper-css', get_template_directory_uri() . '/assets/swiper/css/swiper.min.css', array(), '1.0');
+	// wp_enqueue_script('futurelab-base-swiper-js', get_template_directory_uri() . '/assets/swiper/js/swiper.min.js', array(), '1.0');
 
 	// Register block styles for both frontend. need to put this here and on fl_block_base_futurelab_block_assets
 	wp_register_style(

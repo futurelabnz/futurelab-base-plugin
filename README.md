@@ -18,3 +18,4 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 - padding-left and padding-right in alignwide class
+- removed swiper.js and swiper.css enqueue in slider block in plugin, and move enqueue to theme to avoid duplicated enqueue swiper js and css.
