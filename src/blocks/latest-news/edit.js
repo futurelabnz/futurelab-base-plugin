@@ -83,8 +83,6 @@ class LatestPostsEdit extends Component {
 			excerptLength,
 		} = attributes;
 
-		console.log( this.props );
-
 		const inspectorControls = (
 			<InspectorControls>
 				<PanelBody title={__( 'Post Content Settings' )}>

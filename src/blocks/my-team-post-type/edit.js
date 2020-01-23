@@ -13,7 +13,7 @@ import { rightArrowIcon } from './icons';
 
 export default class extends Component {
 	constructor( props ) {
-		// console.log( 'props', props );
+		// 
 
 		super( ...arguments );
 		this.props = props;
@@ -31,7 +31,7 @@ export default class extends Component {
 			method: 'GET',
 			body: '',
 		} );
-		console.log( 'fetchResult', fetchResult );
+		
 		this.setState( { posts: fetchResult } );
 	}
 
@@ -43,7 +43,7 @@ export default class extends Component {
 			method: 'GET',
 			body: '',
 		} );
-		console.log( 'fetchResult', fetchResult );
+		
 		this.setState( { posts: fetchResult } );
 
 		let postType = '';
@@ -76,7 +76,7 @@ export default class extends Component {
 					} = teamMember;
 					const contentHTML = { __html: contentRendered };
 
-					// console.log( 'teamMemberImage', teamMemberImage );
+					// 
 
 					return (
 						<div key={`${ index }${ id }`} className={'cell'}>

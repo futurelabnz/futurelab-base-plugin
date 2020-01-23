@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-05-10 09:08:46
  * @Last Modified by: Hank
- * @Last Modified time: 2019-09-03 15:04:38
+ * @Last Modified time: 2020-01-23 12:27:25
  */
 
 // TODO: Fix the content width on backend editor, the content can go out side of div...
@@ -23,6 +23,7 @@ const { Component } = wp.element;
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 
+// block is registed as slider2 because futurelab has another gutenberg slider using php rendered, just to be clear.
 registerBlockType( 'futurelab/block-fl-block-slider2', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'fl slider' ), // Block title.

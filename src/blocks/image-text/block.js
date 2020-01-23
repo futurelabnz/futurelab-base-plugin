@@ -2,7 +2,7 @@
  * @Author: Hank
  * @Date: 2019-05-07 14:53:25
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-20 10:31:05
+ * @Last Modified time: 2020-01-23 12:29:11
  */
 /**
  * BLOCK: fl-block-base
@@ -217,7 +217,7 @@ registerBlockType( 'futurelab/block-fl-block-image-text', {
 					// onSelectMedia={this.onSelectMedia}
 					// onWidthChange={this.onWidthChange}
 					onSelectMedia={media => {
-						console.log( 'media', media );
+						
 						let mediaType;
 						let src;
 						// for media selections originated from a file upload.
@@ -252,13 +252,13 @@ registerBlockType( 'futurelab/block-fl-block-image-text', {
 					}}
 					// for resizable box
 					// onWidthChange={value => {
-					// 	console.log( 'width', value );
+					// 	
 					// 	// this.setState( {
 					// 	// 	mediaWidth: value,
 					// 	// } );
 					// }}
 					// commitWidthChange={width => {
-					// 	console.log( 'width', width );
+					// 	
 					// 	// setAttributes( {
 					// 	// 	mediaWidth: width,
 					// 	// } );
