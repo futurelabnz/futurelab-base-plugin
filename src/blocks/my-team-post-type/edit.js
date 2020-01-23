@@ -62,6 +62,7 @@ export default class extends Component {
 		return (
 			<div className="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
 				{teamMembers.map( ( teamMember, index ) => {
+					console.log('teamMembers: ', teamMembers);
 					const {
 						id,
 						title: { rendered: titleRendered },
@@ -81,8 +82,8 @@ export default class extends Component {
 					return (
 						<div key={`${ index }${ id }`} className={'cell'}>
 							<img
-								src={teamMemberImage ? teamMemberImage.img_src : ''}
-								srcSet={teamMemberImage ? teamMemberImage.img_srcset : ''}
+								src={teamMemberImage ? teamMemberImage : ''}
+								srcSet={teamMemberImage ? teamMemberImage : ''}
 								alt=""
 							/>
 							{/* <div

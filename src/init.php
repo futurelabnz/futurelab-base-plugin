@@ -87,21 +87,10 @@ add_action( 'enqueue_block_editor_assets', 'fl_block_base_futurelab_block_assets
 
 
 /**
- * Callback function to render clean HTML on the front-end.
- */
-function futurelab_gutenberg_render_html( $attributes, $content ) {
-	 return html_entity_decode( $content );
-}
-
-// Enqueue frontend.php to generate html
-require_once plugin_dir_path( __FILE__ ) . '/frontend.php';
-
-/**
  * Enqueue frontend JavaScript and CSS assets.
- * NB: Swiper assets are enqueued from the theme, where they are bundled with theme assets
- * in the interests of efficiency
  */
-function enqueue_frontend_assets() {
+function fl_enqueue_frontend_assets() {
+	// NB: Swiper assets are enqueued from the theme, where they are bundled with theme assets in the interests of efficiency
 	// If in the backend, bail out.
 	if ( is_admin() ) {
 		return;
@@ -122,12 +111,12 @@ function enqueue_frontend_assets() {
 		filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' )  // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
 	);
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_frontend_assets' );
+add_action( 'wp_enqueue_scripts', 'fl_enqueue_frontend_assets' );
 
 /**
  * Add Filter to add a block category
  */
-function add_new_block_category( $categories, $post ) {
+function fl_add_new_block_category( $categories, $post ) {
 	return array_merge(
 		$categories,
 		array(
@@ -138,4 +127,44 @@ function add_new_block_category( $categories, $post ) {
 		)
 	);
 }
-add_filter( 'block_categories', 'add_new_block_category', 10, 2 );
+add_filter( 'block_categories', 'fl_add_new_block_category', 10, 2 );
+
+
+/**
+ * custom rest api for blocks
+ */
+function fl_create_api_fields() {
+	// register rest field to team-members end point for block to show images
+	register_rest_field(
+		'fl_team_member',
+		'teamMemberImage',
+		array(
+			'get_callback' => 'fl_get_team_member_image',
+			10,
+			4,
+			'schema'       => null,
+		)
+	);
+}
+function fl_get_team_member_image( $data ) {
+
+	$featured_image_id  = $data['featured_media']; // get featured image id
+	$featured_image_url = wp_get_attachment_image_src( $featured_image_id, 'original' ); // get url of the original size
+
+	if ( $featured_image_url ) {
+		return $featured_image_url[0];
+	}
+}
+add_action( 'rest_api_init', 'fl_create_api_fields' );
+
+/**
+ * Callback function to render clean HTML on the front-end.
+ */
+function futurelab_gutenberg_render_html( $attributes, $content ) {
+	return html_entity_decode( $content );
+}
+
+/**
+* Enqueue frontend.php to generate html
+*/
+require_once plugin_dir_path( __FILE__ ) . '/frontend.php';
