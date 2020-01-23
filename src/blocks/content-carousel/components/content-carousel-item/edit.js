@@ -6,8 +6,8 @@ const { RichText, URLInput, InnerBlocks } = wp.editor;
 const { Component } = wp.element;
 
 export default class extends Component {
-	constructor( props ) {
-		super( ...arguments );
+	constructor(props) {
+		super(...arguments);
 		this.props = props;
 	}
 	// component finish loading
@@ -17,10 +17,12 @@ export default class extends Component {
 	render() {
 		//JSX to return
 		const { attributes, setAttributes, className } = this.props;
-		// const TEMPLATE = [ [ 'futurelab/block-fl-content-carousel-item' ] ];
+		const TEMPLATE = [['futurelab/slide']];
 		return (
 			<div className={className}>
-				<InnerBlocks />
+				<InnerBlocks
+					template={TEMPLATE}
+				/>
 			</div>
 		);
 	}

@@ -2,10 +2,8 @@
  * @Author: Hank
  * @Date: 2019-05-10 09:08:46
  * @Last Modified by: Hank
- * @Last Modified time: 2020-01-23 12:27:25
+ * @Last Modified time: 2020-01-23 15:52:54
  */
-
-// TODO: Fix the content width on backend editor, the content can go out side of div...
 
 //  Import CSS.
 import './style.scss';

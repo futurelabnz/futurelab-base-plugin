@@ -1,5 +1,5 @@
 /**
- * BLOCK: Atomic Blocks Container
+ * Block: single slide of content carousel
  */
 
 // Import block dependencies and components

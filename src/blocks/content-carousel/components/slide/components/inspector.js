@@ -153,7 +153,7 @@ export default class Inspector extends Component {
 							this.props.setAttributes( { containerMaxWidth: value } )
 						}
 						min={500}
-						max={1600}
+						max={7680}
 						step={1}
 					/>
 				</PanelBody>

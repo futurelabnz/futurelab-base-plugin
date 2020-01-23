@@ -16,6 +16,9 @@ All notable changes to this project will be documented in this file.
 - layout-container has max-width of 1600, changed to 7680
 - slider style fix
 - Image text block style fix
+- fix my-team block custom api issue so my-team block can also show team member image on backend editor
+- copyed mixins from theme so plugin can build without theme(but theme has to have swiper and foundation and init in theme)
+- small fix on content-carousel block
 
 ### Removed
 - padding-left and padding-right in alignwide class

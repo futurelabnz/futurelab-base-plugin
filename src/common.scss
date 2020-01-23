@@ -6,12 +6,104 @@
 */
 
 // TODO: How can I do @import "foudation";???? Maynedd to eject from CGB...
-@import "../node_modules/foundation-sites/scss/foundation";
-@import "../node_modules/foundation-sites/scss/global";
+@import '../node_modules/foundation-sites/scss/foundation';
+@import '../node_modules/foundation-sites/scss/global';
 
 // import primary color from theme
-@import "../../../themes/futurelab-base-theme/assets/scss/mixins.scss";
-// @import "../../../themes/futurelab-base/assets/scss/blocks.scss";
+// @import '../../../themes/futurelab-base-theme/assets/scss/mixins.scss';
+
+/* methods
+-------------------------- */
+//  same as mixins.scss in the theme.
+
+/* Common colors */
+$text-gray: #e8eef1;
+$text-black: #222222;
+$text-dark: #b9b8b8;
+
+/* Palette for this theme */
+$dark: var(--palettedark);
+$mid: var(--palettemid);
+$light: var(--palettelight);
+
+$bgcdark: var(--palettebgcdark);
+$bgcmid: var(--palettebgcmid);
+$bgclight: var(--palettebgclight);
+
+/*
+Fonts
+ */
+$body-font: "Montserrat", sans-serif;
+
+/*Border shadows */
+$box-shadow: 8px 8px 15px $text-gray;
+$box-shadow-top: 0px -15px 15px $text-gray;
+$box-shadow-right: 15px 0px 15px $text-gray;
+$box-shadow-bottom: -1px 15px 15px -10px $text-gray;
+$box-shadow-left: -15px 0px 15px $text-gray;
+
+$vertical-spacing: 1.5em;
+
+$max-wide-width: 1140px;
+
+@mixin shadow-around {
+	-webkit-box-shadow: 0px 0px 17px 5px rgba(154, 165, 171, 1);
+	-moz-box-shadow: 0px 0px 17px 5px rgba(154, 165, 171, 1);
+	box-shadow: 0px 0px 17px 5px rgba(154, 165, 171, 1);
+  }
+  
+  // shadow below div
+  @mixin box-shadow-below {
+	box-shadow: 0 20px 50px -5px rgba(154, 165, 171, 1);
+	-webkit-box-shadow: 0 20px 50px -5px rgba(154, 165, 171, 1);
+	-moz-box-shadow: 0 20px 50px -5px rgba(154, 165, 171, 1);
+  }
+  
+  // border-radius
+  @mixin box-border-radius-top {
+	border-radius: 0 0 15px 15px;
+  }
+  
+  // border-radius
+  @mixin box-border-radius-bottom {
+	border-radius: 0 0 15px 15px;
+  }
+  
+  // border-radius
+  @mixin box-border-radius {
+	border-radius: 15px;
+  }
+  
+  // button style
+  @mixin button-primary {
+	font-weight: 600;
+	background-color: $dark;
+	border: none;
+	border-radius: 28px;
+	text-transform: uppercase;
+	color: inherit;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 18px;
+	letter-spacing: 1px;
+	margin: 0;
+	padding: 16px 56px;
+	text-align: center;
+	text-decoration: none;
+	overflow-wrap: break-word;
+	box-shadow: $box-shadow;
+  }
+  
+  // button style
+  @mixin banner-inset-shadow {
+	box-shadow: inset 0px 5px 6px -6px;
+  }
+  
+  // button style
+  @mixin banner-overlay {
+	background: linear-gradient(to right, $light 50%, rgba(255, 255, 255, 0) 60%);
+  }  
 
 /* methods
 -------------------------- */
@@ -82,6 +174,7 @@
 }
 
 /**  media queries  **/
+/**  same as plugin media queries  **/
 
 /* 
   ##Device = Desktops
@@ -95,9 +188,9 @@
 }
 
 /* 
-	##Device = Laptops, Desktops
-	##Screen = 1025px to higher resolution desktops and laptops
-  */
+	  ##Device = Laptops, Desktops
+	  ##Screen = 1025px to higher resolution desktops and laptops
+	*/
 
 @mixin desktops-all {
 	@media (min-width: 1025px) {
@@ -106,31 +199,42 @@
 }
 
 /* 
-	##Device = Laptops, Desktops
-	##Screen = B/w 1025px to 1280px
-  */
+	  ##Device = Laptops, Desktops
+	  ##Screen = B/w 1025px to 1280px
+	*/
 
-@mixin desktops {
+@mixin desktops-small {
 	@media (min-width: 1025px) and (max-width: 1280px) {
 		@content;
 	}
 }
 
 /* 
-	##Device = Tablets, Ipads (portrait)
-	##Screen = B/w 768px to 1024px
-  */
+	  ##Device = Tablets, Ipads (all)
+	  ##Screen = B/w 768px to 1024px
+	*/
 
-@mixin tablets-portrait {
+@mixin tablets-all {
 	@media (min-width: 768px) and (max-width: 1024px) {
 		@content;
 	}
 }
 
 /* 
-	##Device = Tablets, Ipads (landscape)
-	##Screen = B/w 768px to 1024px
-  */
+	  ##Device = Tablets, Ipads (portrait)
+	  ##Screen = B/w 768px to 1024px
+	*/
+
+@mixin tablets-portrait {
+	@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+		@content;
+	}
+}
+
+/* 
+	  ##Device = Tablets, Ipads (landscape)
+	  ##Screen = B/w 768px to 1024px
+	*/
 
 @mixin tablets-landscape {
 	@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -139,20 +243,19 @@
 }
 
 /* 
-	##Device = Low Resolution Tablets, Mobiles (Landscape)
-	##Screen = B/w 481px to 767px
-  */
-
-@mixin mobiles-landscape {
-	@media (min-width: 481px) and (max-width: 767px) {
+	  ##Device = Most of the Smartphones Mobiles
+	  ##Screen = B/w 320px to 767px
+	*/
+@mixin mobiles-all {
+	@media (min-width: 320px) and (max-width: 767px) {
 		@content;
 	}
 }
 
 /* 
-	##Device = Most of the Smartphones Mobiles (Portrait)
-	##Screen = B/w 320px to 479px
-  */
+	  ##Device = Most of the Smartphones Mobiles (Portrait)
+	  ##Screen = B/w 320px to 479px
+	*/
 @mixin mobiles-portrait {
 	@media (min-width: 320px) and (max-width: 480px) {
 		@content;
@@ -160,11 +263,12 @@
 }
 
 /* 
-	##Device = Most of the Smartphones Mobiles
-	##Screen = B/w 320px to 767px
-  */
-@mixin mobiles-all {
-	@media (min-width: 320px) and (max-width: 767px) {
+	  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+	  ##Screen = B/w 481px to 767px
+	*/
+
+@mixin mobiles-landscape {
+	@media (min-width: 481px) and (max-width: 767px) {
 		@content;
 	}
 }

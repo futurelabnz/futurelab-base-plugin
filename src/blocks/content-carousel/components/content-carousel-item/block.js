@@ -1,8 +1,7 @@
 /**
- * BLOCK: my-test-block
+ * BLOCK: the single slide container of content carousel block
  *
- * Registering a basic block with Gutenberg.
- * Simple block, renders and saves the same content without any interactivity.
+ * Just to let user create carousel slider easier
  */
 
 import './style.scss';
