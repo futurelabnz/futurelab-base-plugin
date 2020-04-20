@@ -3,7 +3,7 @@
  * @Author: Hank
  * @Date: 2019-05-24 10:49:35
  * @Last Modified by: Hank
- * @Last Modified time: 2019-08-20 10:30:23
+ * @Last Modified time: 2020-04-08 11:04:49
  */
 
 /* eslint-disable prefer-const */
@@ -37,6 +37,10 @@ registerBlockType( 'futurelab/block-my-team-post-type', {
 	attributes: {
 		postType: {
 			type: 'string',
+		},
+		selectedTaxonomy: {
+			type: 'string',
+			default: null,
 		},
 	},
 	edit: edit,
