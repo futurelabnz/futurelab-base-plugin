@@ -188,3 +188,32 @@ function add_new_block_category($categories, $post)
 }
 
 add_filter('block_categories', 'add_new_block_category', 10, 2);
+
+
+ function fl_register_fields() {
+
+	register_rest_field( 'fl_team_member',
+		'teamMemberImage',
+		array(
+			'get_callback' =>  function ( $post, $attr, $request, $object ) {
+
+				$data['image_id']   = get_post_thumbnail_id( $post['id'] );
+				$data['img_src']    = wp_get_attachment_image_url( $data['image_id'], 'large' );
+				$data['img_srcset'] = wp_get_attachment_image_srcset( $data['image_id'], 'full' );
+				$data['img_alt']    = get_post_meta( $data['image_id'], '_wp_attachment_image_alt', true );
+			
+				$data['meta_data'] = wp_get_attachment_metadata( $data['image_id'] );
+			
+				return $data;
+			
+			},
+			10,
+			4,
+			'schema'       => null,
+		)
+	);
+}
+
+
+
+add_action( 'init', 'fl_register_fields' );

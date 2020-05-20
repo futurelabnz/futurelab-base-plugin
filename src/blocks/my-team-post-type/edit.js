@@ -32,17 +32,30 @@ export default class extends Component {
 			method: 'GET',
 			body: '',
 		});
-		const teamsOptions = Array.from(fl_teams_options.map((item, index) => {
-			return {
-				value: item.id,
-				label: item.name,
-			};
-		}));
+
+		let teamsOptions = {}
+
+		if (Array.isArray(fl_teams_options)) {
+			teamsOptions = Array.from(fl_teams_options.map((item, index) => {
+				console.log('teamsOptions: ', teamsOptions);
+				return {
+					value: item.id,
+					label: item.name,
+				};
+			}));
+		} else {
+			teamsOptions = {
+				value: '',
+				label: '',
+			}
+		}
+
+
 
 		this.setState({ teamsOptions: teamsOptions });
 		const { path } = this.state;
 		const { selectedTaxonomy } = this.props.attributes;
-		const fetchResult = await fetchApi({
+		const fetchTeamMembers = await fetchApi({
 			path: selectedTaxonomy ? `wp/v2/${path}?fl_teams=${selectedTaxonomy}` : `wp/v2/${path}`,
 			method: 'GET',
 			body: '',
@@ -50,7 +63,7 @@ export default class extends Component {
 
 
 
-		this.setState({ posts: fetchResult });
+		this.setState({ posts: fetchTeamMembers });
 	}
 
 	// loop teamMembers Array, render teamMember
@@ -177,15 +190,6 @@ export default class extends Component {
 							...teamsOptions,
 						]}
 					/>
-					{/* <TextControl
-						type="text"
-						lable={'postType'}
-						value={path}
-						onChange={value => {
-							this.setState({ path: value });
-							// setAttributes( { postType: value } );
-						}}
-					/> */}
 				</PanelBody>
 			</InspectorControls>,
 			<div className={`${className}`}>
