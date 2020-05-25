@@ -34,6 +34,17 @@ function render_block_futurelab_news($attributes)
 
 	foreach ($recent_posts as $post) {
 
+		if (isset($attributes['displayCategory'])) {
+			$category_detail = get_the_category($post->ID);
+			$category_detail_str = '';
+			foreach($category_detail as $cd){
+				$category_detail_str .= ' ' . strtolower($cd->cat_name);
+			}
+
+		} else {
+			$category_detail_str = '';
+		}
+
 		$thumbnail = get_the_post_thumbnail($post, 'large'); // change to "large" because i need image to cover the full column, Hank
 		if (empty($thumbnail)) {
 			$thumbnail = '<div class="image-placeholder"></div>';
@@ -43,7 +54,8 @@ function render_block_futurelab_news($attributes)
 		if (!$title) {
 			$title = __('(Untitled)');
 		}
-		$list_items_markup .= '<li class="post-item">';
+
+		$list_items_markup .= sprintf('<li class="post-item%1$s">', $category_detail_str);
 
 		$list_items_markup .= sprintf(
 			'<a class="post-image" href="%1$s">%2$s</a>',
@@ -66,6 +78,13 @@ function render_block_futurelab_news($attributes)
 				'<time datetime="%1$s" class="wp-block-latest-posts__post-date">%2$s</time>',
 				esc_attr(get_the_date('c', $post)),
 				esc_html(get_the_date('M j, Y', $post))
+			);
+		}
+
+		if (isset($category_detail_str) && $attributes['displayCategory']) {
+			$list_items_markup .= sprintf(
+				'<div class="post-category"><p class="post-category-name">%1$s</p></div>',
+				strtoupper($category_detail_str),
 			);
 		}
 
@@ -200,6 +219,10 @@ function register_block_futurelab_news()
 				'orderBy'                 => array(
 					'type'    => 'string',
 					'default' => 'date',
+				),
+				'displayCategory'         => array(
+					'type'    => 'boolean',
+					'default' => false,
 				),
 			),
 			'render_callback' => 'render_block_futurelab_news',
