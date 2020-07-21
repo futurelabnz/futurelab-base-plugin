@@ -84,7 +84,7 @@ function render_block_futurelab_news($attributes)
 		if (isset($category_detail_str) && $attributes['displayCategory']) {
 			$list_items_markup .= sprintf(
 				'<div class="post-category"><p class="post-category-name">%1$s</p></div>',
-				strtoupper($category_detail_str),
+				strtoupper($category_detail_str)
 			);
 		}
 
