@@ -74,6 +74,7 @@ class LatestPostsEdit extends Component {
 			displayPostContentRadio,
 			displayPostContent,
 			displayPostDate,
+			displayCategory,
 			postLayout,
 			columns,
 			order,
@@ -82,8 +83,6 @@ class LatestPostsEdit extends Component {
 			postsToShow,
 			excerptLength,
 		} = attributes;
-
-		console.log( this.props );
 
 		const inspectorControls = (
 			<InspectorControls>
@@ -122,6 +121,11 @@ class LatestPostsEdit extends Component {
 						label={__( 'Display post date' )}
 						checked={displayPostDate}
 						onChange={value => setAttributes( { displayPostDate: value } )}
+					/>
+					<ToggleControl
+						label={__( 'Display category' )}
+						checked={displayCategory}
+						onChange={value => setAttributes( { displayCategory: value } )}
 					/>
 				</PanelBody>
 
