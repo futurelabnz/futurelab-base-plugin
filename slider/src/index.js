@@ -1,6 +1,22 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
 
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+import './style.scss';
+
+/**
+ * Internal dependencies
+ */
+import Edit from './edit';
+import save from './save';
+
+
 const blockStyle = {
     backgroundColor: '#900',
     color: '#fff',
@@ -12,30 +28,6 @@ registerBlockType('futurelab-base-plugin/slider', {
     icon: 'wordpress',
     category: 'layout',
     example: {},
-    edit() {
-        return <div style={blockStyle}>Hello World, step 1 (from the editor).</div>;
-    },
-    save() {
-        return (
-            <div class='swiper-container'>
-                <div class='swiper-wrapper'>
-                    <div class='swiper-slide'>Slide 1</div>
-                    <div class='swiper-slide'>Slide 2</div>
-                    <div class='swiper-slide'>Slide 3</div>
-                    <div class='swiper-slide'>Slide 4</div>
-                    <div class='swiper-slide'>Slide 5</div>
-                    <div class='swiper-slide'>Slide 6</div>
-                    <div class='swiper-slide'>Slide 7</div>
-                    <div class='swiper-slide'>Slide 8</div>
-                    <div class='swiper-slide'>Slide 9</div>
-                    <div class='swiper-slide'>Slide 10</div>
-                </div>
-                {/* <!-- Add Pagination --> */}
-                <div class='swiper-pagination'></div>
-                {/* <!-- Add Arrows --> */}
-                <div class='swiper-button-next'></div>
-                <div class='swiper-button-prev'></div>
-            </div>
-        );
-    },
+	edit: Edit,
+	save,
 });

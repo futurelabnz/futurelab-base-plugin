@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///style.scss"],"names":[],"mappings":"AAAA;EACE,gCAAgC;AAClC,C","file":"style-index.css","sourcesContent":[".swiper-container {\n  background-color: red !important;\n}"],"sourceRoot":""}

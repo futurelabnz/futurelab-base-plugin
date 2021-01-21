@@ -73,5 +73,21 @@ function futurelab_base_plugin_slider_register_block() {
 		true
 	);
 
+	$editor_css = 'build/index.css';
+	wp_enqueue_style(
+		'futurelab-base-plugin-slider-style-editor',
+		plugins_url( $editor_css, __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . $editor_css),
+	);
+
+	$style_css = 'build/style-index.css';
+	wp_enqueue_style(
+		'futurelab-base-plugin-slider-style',
+		plugins_url( $style_css, __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . $style_css),
+	);
+
 }
 add_action( 'init', 'futurelab_base_plugin_slider_register_block' );
