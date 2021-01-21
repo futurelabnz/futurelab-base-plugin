@@ -7,8 +7,8 @@ const blockStyle = {
 	padding: '20px',
 };
 
-registerBlockType( 'futurelab-base-plugin/slider', {
-	title: __( 'Slider', 'futurelab-base-plugin' ),
+registerBlockType( 'futurelab-base-plugin/accordion', {
+	title: __( 'Accordion', 'futurelab-base-plugin' ),
 	icon: 'wordpress',
 	category: 'layout',
 	example: {},

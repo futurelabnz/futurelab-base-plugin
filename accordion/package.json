@@ -1,8 +1,8 @@
 {
-	"name": "slider",
+	"name": "accordion",
 	"version": "1.0.0",
 	"private": true,
-	"description": "slider block.",
+	"description": "accordion block.",
 	"author": "Futurelab",
 	"license": "GPL-2.0-or-later",
 	"keywords": [

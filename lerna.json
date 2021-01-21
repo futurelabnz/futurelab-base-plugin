@@ -1,6 +1,7 @@
 {
   "packages": [
-    "slider"
+    "slider",
+    "accordion"
   ],
   "version": "independent"
 }
