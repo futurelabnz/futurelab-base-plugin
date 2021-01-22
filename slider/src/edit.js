@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,9 +30,29 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
+		const TEMPLATE = [
+		[
+			'core/cover',
+		],
+		[
+			'core/cover',
+		],
+		[
+			'core/cover',
+		],
+	];
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Starter Block – hello from the editor!', 'starter-block' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			<div class='swiper-container'>
+				<div class='swiper-wrapper'>
+					<InnerBlocks allowedBlocks={[ 'core/cover' ]} template={ TEMPLATE } orientation="horizontal"/>	
+				</div>
+				{/* <!-- Add Pagination --> */}
+				<div class="swiper-pagination"></div>
+				{/* <!-- Add Arrows --> */}
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		</div>
 	);
 }

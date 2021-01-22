@@ -35,10 +35,18 @@ function futurelab_base_plugin_slider_register_block() {
 		$asset_file['version']
 	);
 
+	wp_register_style(
+		'futurelab-base-plugin-slider-editor',
+		plugins_url( 'build/index.css' , __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . 'build/index.css' )
+	);
+
 	register_block_type(
 		'futurelab-base-plugin/slider',
 		array(
 			'editor_script' => 'futurelab-base-plugin-slider',
+			'editor_style'  => 'futurelab-base-plugin-slider-editor',
 		)
 	);
 
@@ -90,4 +98,4 @@ function futurelab_base_plugin_slider_register_block() {
 	);
 
 }
-add_action( 'init', 'futurelab_base_plugin_slider_register_block' );
+add_action( 'init', 'futurelab_base_plugin_slider_register_block', 999 );

@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,24 +24,17 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save() {
 	return (
-		<div class='swiper-container'  { ...useBlockProps.save() } >
-			<div class='swiper-wrapper'>
-				<div class='swiper-slide'>Slide 1</div>
-				<div class='swiper-slide'>Slide 2</div>
-				<div class='swiper-slide'>Slide 3</div>
-				<div class='swiper-slide'>Slide 4</div>
-				<div class='swiper-slide'>Slide 5</div>
-				<div class='swiper-slide'>Slide 6</div>
-				<div class='swiper-slide'>Slide 7</div>
-				<div class='swiper-slide'>Slide 8</div>
-				<div class='swiper-slide'>Slide 9</div>
-				<div class='swiper-slide'>Slide 10</div>
+		<div { ...useBlockProps.save() } >
+			<div class='swiper-container' >
+				<div class='swiper-wrapper'>
+					<InnerBlocks.Content />
+				</div>
+				{/* <!-- Add Pagination --> */}
+				<div class="swiper-pagination"></div>
+				{/* <!-- Add Arrows --> */}
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
 			</div>
-			{/* <!-- Add Pagination --> */}
-			<div class='swiper-pagination'></div>
-			{/* <!-- Add Arrows --> */}
-			<div class='swiper-button-next'></div>
-			<div class='swiper-button-prev'></div>
 		</div>
 	);
 }

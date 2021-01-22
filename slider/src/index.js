@@ -29,5 +29,9 @@ registerBlockType('futurelab-base-plugin/slider', {
     category: 'layout',
     example: {},
 	edit: Edit,
-	save,
+    save,
+    supports: {
+		align: true,
+		alignWide: true,
+	},
 });
