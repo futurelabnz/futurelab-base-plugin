@@ -293,6 +293,10 @@ var blockStyle = {
   padding: '20px'
 };
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('futurelab-base-plugin/slider', {
+  /**
+  * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/
+  */
+  apiVersion: 2,
   title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Slider', 'futurelab-base-plugin'),
   icon: 'wordpress',
   category: 'layout',
