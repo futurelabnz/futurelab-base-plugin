@@ -24,6 +24,10 @@ const blockStyle = {
 };
 
 registerBlockType('futurelab-base-plugin/slider', {
+    /**
+	 * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/
+	 */
+	apiVersion: 2,
     title: __('Slider', 'futurelab-base-plugin'),
     icon: 'wordpress',
     category: 'layout',
