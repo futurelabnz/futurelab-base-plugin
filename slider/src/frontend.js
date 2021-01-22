@@ -12,7 +12,7 @@
           $.each($('.wp-block-futurelab-base-plugin-slider .swiper-container'), function () {
               var swiperSlidersInstance = new Swiper($(this), {
                   slideClass: 'wp-block-cover',
-                  speed: 1000,
+                  speed: 800,
                   spaceBetween: 0,
                   autoplay: {
                       delay: 2000,
@@ -23,10 +23,10 @@
                       el: $(this).children('.swiper-pagination'),
                       clickable: true,
                   },
-                  // navigation: {
-                  //   nextEl: $(this).siblings(".swiper-button-next"),
-                  //   prevEl: $(this).siblings(".swiper-button-prev")
-                  // },
+                  navigation: {
+                    nextEl: $(this).children(".swiper-button-next"),
+                    prevEl: $(this).children(".swiper-button-prev")
+                  },
                   a11y: {
                       prevSlideMessage: 'Prev Slide',
                       nextSlideMessage: 'Next Slide',
@@ -45,6 +45,6 @@
           });
       }
       // window.swiperGalleriesInstances[0].destroy();
-      
+
   });
 })(jQuery);
