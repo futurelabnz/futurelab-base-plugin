@@ -10,5 +10,31 @@
 .wp-block-futurelab-base-plugin-slider .swiper-container .swiper-wrapper .block-editor-inner-blocks {
   width: 100%;
 }
+.wp-block-futurelab-base-plugin-slider .swiper-container .swiper-wrapper .block-editor-inner-blocks .block-editor-block-list__layout {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.wp-block-futurelab-base-plugin-slider .swiper-container .swiper-wrapper .block-editor-inner-blocks .block-editor-block-list__layout .wp-block-cover {
+  display: inline-flex;
+  min-width: 100%;
+  height: auto;
+}
+.wp-block-futurelab-base-plugin-slider .swiper-container .swiper-wrapper .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender {
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wp-block-futurelab-base-plugin-slider .swiper-container .swiper-wrapper .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender .block-editor-button-block-appender.block-list-appender__toggle > svg {
+  width: 60px;
+  height: 60px;
+}
+.wp-block-futurelab-base-plugin-slider .swiper-container .swiper-pagination {
+  display: none;
+}
+.wp-block-futurelab-base-plugin-slider .swiper-container .swiper-button-next, .wp-block-futurelab-base-plugin-slider .swiper-container .swiper-button-prev {
+  display: none;
+}
 
 /*# sourceMappingURL=index.css.map*/

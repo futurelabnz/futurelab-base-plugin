@@ -1,6 +1,7 @@
 .wp-block-futurelab-base-plugin-slider .wp-block-cover,
 .wp-block-futurelab-base-plugin-slider .wp-block-cover-image {
   flex-shrink: 0;
+  height: auto;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

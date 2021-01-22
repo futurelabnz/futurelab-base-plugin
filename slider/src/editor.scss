@@ -15,7 +15,34 @@
         .swiper-wrapper {
             .block-editor-inner-blocks {
                 width: 100%;
+                .block-editor-block-list__layout {
+                    display: flex;
+                    overflow-x: auto;
+                    overflow-y: auto;
+                    .wp-block-cover {
+                        display: inline-flex;
+                        min-width: 100%;
+                        height: auto;
+                    }
+                    .block-list-appender {
+                        min-width: 200px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .block-editor-button-block-appender.block-list-appender__toggle>svg {
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
+
+                }
             }
+        }
+        .swiper-pagination {
+            display: none;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            display: none;
         }
     }
 }
