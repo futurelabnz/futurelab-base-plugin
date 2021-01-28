@@ -85,7 +85,7 @@ function futurelab_base_plugin_slider_register_block() {
 	wp_enqueue_script(
 		'flb-swiper-init-script',
 		plugins_url( 'src/frontend.js', __FILE__ ),
-		array( 'flb-swiper-script' ),
+		array( 'flb-swiper-script', 'jquery' ),
 		filemtime( plugin_dir_path( __FILE__ ) . 'src/frontend.js'),
 		true
 	);

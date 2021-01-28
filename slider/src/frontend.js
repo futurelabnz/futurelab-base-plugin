@@ -7,7 +7,6 @@
       var swiperSliders = $('.wp-block-futurelab-base-plugin-slider');
       // check if swiperContainer div exist
       if (typeof swiperSliders !== 'undefined' && swiperSliders !== null) {
-        console.log('initn');
           window.swiperSlidersInstances = [];
           $.each($('.wp-block-futurelab-base-plugin-slider .swiper-container'), function () {
               var swiperSlidersInstance = new Swiper($(this), {
