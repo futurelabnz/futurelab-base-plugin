@@ -13,4 +13,5 @@
 defined( 'ABSPATH' ) || exit;
 
 include 'slider/index.php';
+include 'carousel/index.php';
 include 'accordion/index.php';

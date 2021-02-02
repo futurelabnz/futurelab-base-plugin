@@ -1,0 +1,12 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+.wp-block-futurelab-base-plugin-carousel-item {
+  padding:15px;
+  z-index: 10;
+  margin:15px;
+}

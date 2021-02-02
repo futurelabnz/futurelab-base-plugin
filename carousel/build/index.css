@@ -1,0 +1,34 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-futurelab-base-plugin-carousel-item {
+  padding: 15px;
+  z-index: 10;
+  margin: 15px;
+}
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-futurelab-base-plugin-carousel .wp-block-cover,
+.wp-block-futurelab-base-plugin-carousel .wp-block-cover-image {
+  flex-shrink: 0;
+}
+.wp-block-futurelab-base-plugin-carousel .swiper-container .swiper-wrapper > .block-editor-inner-blocks {
+  width: 100%;
+}
+.wp-block-futurelab-base-plugin-carousel .swiper-container .swiper-wrapper > .block-editor-inner-blocks > .block-editor-block-list__layout .wp-block-cover {
+  min-width: 100%;
+}
+.wp-block-futurelab-base-plugin-carousel .swiper-container .swiper-pagination {
+  display: none;
+}
+.wp-block-futurelab-base-plugin-carousel .swiper-container .swiper-button-next, .wp-block-futurelab-base-plugin-carousel .swiper-container .swiper-button-prev {
+  display: none;
+}
+
+/*# sourceMappingURL=index.css.map*/

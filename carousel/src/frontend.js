@@ -2,15 +2,15 @@
   'use strict';
   $(document).ready(function () {
 
-      // init top slider
-      // var swiperSliders = $(".products-slider-container");
-      var swiperSliders = $('.wp-block-futurelab-base-plugin-slider');
+      // init top carousel
+      // var swiperCarousels = $(".products-carousel-container");
+      var swiperCarousels = $('.wp-block-futurelab-base-plugin-carousel');
       // check if swiperContainer div exist
-      if (typeof swiperSliders !== 'undefined' && swiperSliders !== null) {
-          window.swiperSlidersInstances = [];
-          $.each($('.wp-block-futurelab-base-plugin-slider .swiper-container'), function () {
-              var swiperSlidersInstance = new Swiper($(this), {
-                  slideClass: 'wp-block-cover',
+      if (typeof swiperCarousels !== 'undefined' && swiperCarousels !== null) {
+          window.swiperCarouselsInstances = [];
+          $.each($('.wp-block-futurelab-base-plugin-carousel .swiper-container'), function () {
+              var swiperCarouselsInstance = new Swiper($(this), {
+                  slidesPerView: 1,
                   speed: 800,
                   spaceBetween: 0,
                   autoplay: {
@@ -34,16 +34,12 @@
                   observeParents: true,
               });
 
-              window.swiperSlidersInstances.push(swiperSlidersInstance);
+              window.swiperCarouselsInstances.push(swiperCarouselsInstance);
           });
 
-          $.each($('.wp-block-futurelab-base-plugin-slider .wp-block-cover'), function (index, value) {
-              if ($(this).hasClass('swiper-slide-duplicate')) {
-                  $(this).attr('aria-hidden', 'true');
-              }
-          });
       }
       // window.swiperGalleriesInstances[0].destroy();
 
   });
+
 })(jQuery);

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///style.scss"],"names":[],"mappings":";AAAA;;EAEE,cAAc;EACd,YAAY;AACd,C","file":"style-index.css","sourcesContent":[".wp-block-futurelab-base-plugin-carousel .wp-block-cover,\n.wp-block-futurelab-base-plugin-carousel .wp-block-cover-image {\n  flex-shrink: 0;\n  height: auto;\n}"],"sourceRoot":""}
