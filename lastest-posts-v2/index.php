@@ -361,7 +361,7 @@ function render_block_base_latest_posts_flv2( $attributes ) {
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $class ) );
 
 	return sprintf(
-		'<ul %1$s>%2$s</ul>',
+		'<div class="wp-block-latest-posts-container"><ul %1$s>%2$s</ul></div>',
 		$wrapper_attributes,
 		$list_items_markup
 	);
