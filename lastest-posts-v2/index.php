@@ -246,8 +246,13 @@ function render_block_base_latest_posts_flv2( $attributes ) {
 
 	foreach ( $recent_posts as $post ) {
 		$post_link = esc_url( get_permalink( $post ) );
+		
+		$fl_has_post_thumbnail = ' ';
+		if ( $attributes['displayFeaturedImage'] && has_post_thumbnail( $post ) ) {
+			$fl_has_post_thumbnail .= 'fl_has_post_thumbnail';
+		};
 
-		$list_items_markup .= '<li class="lastest-post-v2-item">';
+		$list_items_markup .= '<li class="lastest-post-v2-item' .  $fl_has_post_thumbnail . '">';
 
 		if ( $attributes['displayFeaturedImage'] && has_post_thumbnail( $post ) ) {
 			$image_style = '';
@@ -272,7 +277,7 @@ function render_block_base_latest_posts_flv2( $attributes ) {
 			);
 			if ( $attributes['addLinkToFeaturedImage'] ) {
 				$featured_image = sprintf(
-					'<a href="%1$s">%2$s</a>',
+					'<a class="link-on-featured-img" href="%1$s">%2$s</a>',
 					$post_link,
 					$featured_image
 				);
@@ -289,7 +294,7 @@ function render_block_base_latest_posts_flv2( $attributes ) {
 			$title = __( '(no title)' );
 		}
 		$list_items_markup .= sprintf(
-			'<a href="%1$s">%2$s</a>',
+			'<a class="link-on-title" href="%1$s">%2$s</a>',
 			$post_link,
 			$title
 		);
