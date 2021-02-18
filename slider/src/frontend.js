@@ -14,7 +14,7 @@
                   speed: 800,
                   spaceBetween: 0,
                   autoplay: {
-                      delay: 2000,
+                      delay: 4000,
                       disableOnInteraction: true,
                   },
                   loop: true,

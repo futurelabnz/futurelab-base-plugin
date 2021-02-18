@@ -16,13 +16,6 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 
-
-const blockStyle = {
-    backgroundColor: '#900',
-    color: '#fff',
-    padding: '20px',
-};
-
 registerBlockType('futurelab-base-plugin/slider', {
     /**
 	 * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/
