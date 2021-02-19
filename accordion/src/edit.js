@@ -24,6 +24,8 @@ import { useBlockProps, InnerBlocks, RichText, AlignmentToolbar, BlockControls }
  */
 import './editor.scss';
 
+import Inspector from './components/inspector';
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -32,10 +34,27 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( ) {
+export default function Edit(props) {
     return (
-    	<div { ...useBlockProps() }>
-    		<p>edit</p>
-    	</div>
+        // Show the block alignment controls on focus
+        <>
+            {/* // Show the block controls on focus */}
+            <Inspector {...props} />
+            {/* // Show the button markup in the editor */}
+            <div {...useBlockProps()}>
+                <RichText
+                    tagName='div'
+                    multiline='p'
+                    placeholder='Accordion Title'
+                    value={props.attributes.accordionTitle}
+                    className='fl-accordion-title'
+                    onChange={(value) => props.setAttributes({ accordionTitle: value })}
+                />
+
+                <div className='fl-accordion-text'>
+                    <InnerBlocks />
+                </div>
+            </div>
+        </>
     );
 }

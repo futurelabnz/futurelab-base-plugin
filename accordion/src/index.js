@@ -16,6 +16,23 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 
+const blockAttributes = {
+	accordionTitle: {
+		type: 'array',
+		selector: '.fl-accordion-title',
+		source: 'children',
+	},
+	accordionText: {
+		type: 'array',
+		selector: '.fl-accordion-text',
+		source: 'children',
+	},
+	accordionOpen: {
+		type: 'boolean',
+		default: false,
+	},
+};
+
 registerBlockType('futurelab-base-plugin/accordion', {
     /**
      * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/
@@ -25,6 +42,7 @@ registerBlockType('futurelab-base-plugin/accordion', {
     icon: 'wordpress',
     category: 'layout',
     example: {},
+    attributes: blockAttributes,
     edit: Edit,
     save,
     supports: {

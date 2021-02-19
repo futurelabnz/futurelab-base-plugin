@@ -69,7 +69,7 @@ function futurelab_base_plugin_accordion_register_block() {
 	}
 
 	wp_enqueue_script(
-		'flb-swiper-init-script',
+		'flb-accordion-init-script',
 		plugins_url( 'src/frontend.js', __FILE__ ),
 		array( 'jquery' ),
 		filemtime( plugin_dir_path( __FILE__ ) . 'src/frontend.js'),

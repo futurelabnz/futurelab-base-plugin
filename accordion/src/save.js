@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, RichText, AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -22,10 +22,16 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
-	return (
-		<div { ...useBlockProps.save() } >
-			<p>save</p>
-		</div>
-	);
+export default function save(props) {
+    const { accordionOpen } = props.attributes;
+    return (
+        <div {...useBlockProps.save()}>
+            <button className={`fl-accordion fl-accordion-title ${accordionOpen ? 'active' : ''}`}>
+                <RichText.Content value={props.attributes.accordionTitle} />
+            </button>
+            <div className={`fl-accordion fl-accordion-panel ${accordionOpen ? 'active' : ''}`}>
+                <InnerBlocks.Content />
+            </div>
+        </div>
+    );
 }
