@@ -4,8 +4,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
- 
-
- .wp-block-futurelab-base-plugin-accordion {
-
+.wp-block-futurelab-base-plugin-accordion {
+    // accordion panel style in editor
+    .fl-accordion-text {
+        padding: 10px 15px;
+    }
 }

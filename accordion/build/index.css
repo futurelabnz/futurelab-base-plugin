@@ -3,5 +3,8 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-futurelab-base-plugin-accordion .fl-accordion-text {
+  padding: 10px 15px;
+}
 
 /*# sourceMappingURL=index.css.map*/

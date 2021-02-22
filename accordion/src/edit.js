@@ -38,10 +38,23 @@ export default function Edit(props) {
     return (
         // Show the block alignment controls on focus
         <>
+            {/* // Show the block alignment controls on focus */}
+            <BlockControls key='controls'>
+                <AlignmentToolbar
+                    value={props.attributes.accordionAlignment}
+                    onChange={(value) => props.setAttributes({ accordionAlignment: value })}
+                />
+            </BlockControls>
             {/* // Show the block controls on focus */}
             <Inspector {...props} />
             {/* // Show the button markup in the editor */}
-            <div {...useBlockProps()}>
+            <div
+                {...useBlockProps({
+                    className: props.attributes.accordionAlignment
+                        ? 'fl-align-' + props.attributes.accordionAlignment
+                        : undefined,
+                })}
+            >
                 <RichText
                     tagName='div'
                     multiline='p'

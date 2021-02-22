@@ -31,6 +31,9 @@ const blockAttributes = {
 		type: 'boolean',
 		default: false,
 	},
+    accordionAlignment: {
+		type: 'string',
+	},
 };
 
 registerBlockType('futurelab-base-plugin/accordion', {

@@ -25,7 +25,13 @@ import { useBlockProps, InnerBlocks, RichText, AlignmentToolbar, BlockControls }
 export default function save(props) {
     const { accordionOpen } = props.attributes;
     return (
-        <div {...useBlockProps.save()}>
+        <div
+            {...useBlockProps.save({
+                className: props.attributes.accordionAlignment
+                    ? 'fl-align-' + props.attributes.accordionAlignment
+                    : undefined,
+            })}
+        >
             <button className={`fl-accordion fl-accordion-title ${accordionOpen ? 'active' : ''}`}>
                 <RichText.Content value={props.attributes.accordionTitle} />
             </button>

@@ -1,3 +1,49 @@
-
+.wp-block-futurelab-base-plugin-accordion {
+  margin-bottom: 1.25rem;
+}
+.wp-block-futurelab-base-plugin-accordion.fl-align-left .fl-accordion-title {
+  text-align: left;
+}
+.wp-block-futurelab-base-plugin-accordion.fl-align-center .fl-accordion-title {
+  text-align: center;
+}
+.wp-block-futurelab-base-plugin-accordion.fl-align-right .fl-accordion-title {
+  text-align: right;
+}
+.wp-block-futurelab-base-plugin-accordion .fl-accordion {
+  background-color: #ccc;
+  color: #000;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+.wp-block-futurelab-base-plugin-accordion .fl-accordion-title {
+  background: #f2f2f2;
+  padding: 0.875rem 1rem;
+}
+.wp-block-futurelab-base-plugin-accordion .fl-accordion-title p {
+  margin-bottom: 0px;
+}
+.wp-block-futurelab-base-plugin-accordion .fl-accordion-panel {
+  padding: 0 1rem;
+  display: none;
+  background-color: #fff;
+  overflow: hidden;
+}
+.wp-block-futurelab-base-plugin-accordion .fl-accordion-panel.active {
+  display: block;
+}
+.wp-block-futurelab-base-plugin-accordion .active,
+.wp-block-futurelab-base-plugin-accordion .fl-accordion:hover {
+  background-color: #ccc;
+}
+.wp-block-futurelab-base-plugin-accordion + .wp-block-futurelab-base-plugin-accordion {
+  margin-top: -0.625rem;
+}
 
 /*# sourceMappingURL=style-index.css.map*/
