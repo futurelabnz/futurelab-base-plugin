@@ -10,6 +10,23 @@
 .wp-block-futurelab-base-plugin-accordion.fl-align-right .fl-accordion-title {
   text-align: right;
 }
+.wp-block-futurelab-base-plugin-accordion.alignleft {
+  float: left;
+  margin-right: 2em;
+}
+.wp-block-futurelab-base-plugin-accordion.alignleft + .wp-block-futurelab-base-plugin-accordion {
+  margin-top: 0rem;
+}
+.wp-block-futurelab-base-plugin-accordion.alignright {
+  float: right;
+  margin-left: 2em;
+}
+.wp-block-futurelab-base-plugin-accordion.alignright + .wp-block-futurelab-base-plugin-accordion {
+  margin-top: 0rem;
+}
+.wp-block-futurelab-base-plugin-accordion.alignright:last-child() {
+  clear: both;
+}
 .wp-block-futurelab-base-plugin-accordion .fl-accordion {
   background-color: #ccc;
   color: #000;
