@@ -281,9 +281,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var attributes = _ref.attributes;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["useBlockProps"].save({
     className: "swiper-slide"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InnerBlocks"].Content, null));
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    class: "wp-block-futurelab-base-plugin-carousel__inner-container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InnerBlocks"].Content, null)));
 });
 
 /***/ }),
@@ -405,11 +407,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var blockStyle = {
-  backgroundColor: '#900',
-  color: '#fff',
-  padding: '20px'
-};
 Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('futurelab-base-plugin/carousel', {
   /**
   * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/

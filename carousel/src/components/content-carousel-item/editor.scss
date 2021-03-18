@@ -9,4 +9,7 @@
   padding:15px;
   z-index: 10;
   margin:15px;
+  &.wp-block {
+    max-width: none;
+  }
 }

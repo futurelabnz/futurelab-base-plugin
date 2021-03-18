@@ -2,8 +2,10 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 export default ( { attributes } ) => {
 	return (
-		<div className="swiper-slide">
-			<InnerBlocks.Content />
+		<div {...useBlockProps.save({ className: "swiper-slide" })}>
+			<div class="wp-block-futurelab-base-plugin-carousel__inner-container">
+				<InnerBlocks.Content />
+			</div>
 		</div>
 	);
 };
