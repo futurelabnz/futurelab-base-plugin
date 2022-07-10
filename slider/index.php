@@ -7,11 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-/**
- * Load all translations for our plugin from the MO file.
-*/
 add_action( 'init', 'futurelab_base_plugin_slider_load_textdomain' );
 
+/**
+ * Load all translations for our plugin from the MO file.
+ */
 function futurelab_base_plugin_slider_load_textdomain() {
 	load_plugin_textdomain( 'futurelab-base-plugin', false, basename( __DIR__ ) . '/languages' );
 }
@@ -24,7 +24,7 @@ function futurelab_base_plugin_slider_load_textdomain() {
  */
 function futurelab_base_plugin_slider_register_block() {
 
-	// automatically load dependencies and version
+	// automatically load dependencies and version.
 	$asset_file = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 
 	wp_register_script(
