@@ -1,0 +1,14 @@
+{
+    "require-dev": {
+        "humanmade/coding-standards": "^1.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "format": "vendor/bin/phpcbf --standard=vendor/humanmade/coding-standards .",
+        "lint": "./vendor/bin/phpcs --standard=vendor/humanmade/coding-standards ."
+      }
+}
