@@ -7,11 +7,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+add_action( 'init', 'futurelab_base_plugin_accordion_load_textdomain' );
 /**
  * Load all translations for our plugin from the MO file.
-*/
-add_action( 'init', 'futurelab_base_plugin_accordion_load_textdomain' );
-
+ */
 function futurelab_base_plugin_accordion_load_textdomain() {
 	load_plugin_textdomain( 'futurelab-base-plugin', false, basename( __DIR__ ) . '/languages' );
 }
