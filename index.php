@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Futurelab Base plugin
  * Plugin URI: https://www.futurelab.co.nz

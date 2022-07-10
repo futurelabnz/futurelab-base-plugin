@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Futurelab latest-posts-flv2
  *
