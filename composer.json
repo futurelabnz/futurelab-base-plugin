@@ -8,7 +8,7 @@
         }
     },
     "scripts": {
-        "format": "vendor/bin/phpcbf --standard=vendor/humanmade/coding-standards .",
-        "lint": "./vendor/bin/phpcs --standard=vendor/humanmade/coding-standards ."
+        "format": "vendor/bin/phpcbf --standard=phpcs.ruleset.xml -s .",
+        "lint": "./vendor/bin/phpcs --standard=phpcs.ruleset.xml -s ."
       }
 }
