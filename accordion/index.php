@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Futurelab accordion
  *
@@ -8,11 +7,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
+add_action( 'init', 'futurelab_base_plugin_accordion_load_textdomain' );
 /**
  * Load all translations for our plugin from the MO file.
-*/
-add_action( 'init', 'futurelab_base_plugin_accordion_load_textdomain' );
-
+ */
 function futurelab_base_plugin_accordion_load_textdomain() {
 	load_plugin_textdomain( 'futurelab-base-plugin', false, basename( __DIR__ ) . '/languages' );
 }
@@ -25,7 +23,7 @@ function futurelab_base_plugin_accordion_load_textdomain() {
  */
 function futurelab_base_plugin_accordion_register_block() {
 
-	// automatically load dependencies and version
+	// automatically load dependencies and version.
 	$asset_file = include plugin_dir_path( __FILE__ ) . 'build/index.asset.php';
 
 	wp_register_script(
@@ -37,8 +35,8 @@ function futurelab_base_plugin_accordion_register_block() {
 
 	wp_register_style(
 		'futurelab-base-plugin-accordion-editor',
-		plugins_url( 'build/index.css' , __FILE__ ),
-		array(),
+		plugins_url( 'build/index.css', __FILE__ ),
+		[],
 		filemtime( plugin_dir_path( __FILE__ ) . 'build/index.css' )
 	);
 
@@ -46,17 +44,17 @@ function futurelab_base_plugin_accordion_register_block() {
 	wp_register_style(
 		'futurelab-base-plugin-accordion-style',
 		plugins_url( $style_css, __FILE__ ),
-		array(),
-		filemtime( plugin_dir_path( __FILE__ ) . $style_css),
+		[],
+		filemtime( plugin_dir_path( __FILE__ ) . $style_css ),
 	);
 
 	register_block_type(
 		'futurelab-base-plugin/accordion',
-		array(
+		[
 			'editor_script' => 'futurelab-base-plugin-accordion',
 			'editor_style'  => 'futurelab-base-plugin-accordion-editor',
 			'style'  => 'futurelab-base-plugin-accordion-style',
-		)
+		]
 	);
 
 	if ( function_exists( 'wp_set_script_translations' ) ) {
@@ -71,8 +69,8 @@ function futurelab_base_plugin_accordion_register_block() {
 	wp_enqueue_script(
 		'flb-accordion-init-script',
 		plugins_url( 'src/frontend.js', __FILE__ ),
-		array( 'jquery' ),
-		filemtime( plugin_dir_path( __FILE__ ) . 'src/frontend.js'),
+		[ 'jquery' ],
+		filemtime( plugin_dir_path( __FILE__ ) . 'src/frontend.js' ),
 		true
 	);
 
