@@ -512,8 +512,8 @@ function Edit(props) {
     })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_inspector__WEBPACK_IMPORTED_MODULE_4__["default"], props), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])({
       className: props.attributes.accordionAlignment ? 'fl-align-' + props.attributes.accordionAlignment : undefined
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-      tagName: "div",
-      multiline: "p",
+      tagName: "h2",
+      multiline: "",
       placeholder: "Accordion Title",
       value: props.attributes.accordionTitle,
       className: "fl-accordion-title",
@@ -663,6 +663,7 @@ function save(props) {
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", {
     className: "fl-accordion fl-accordion-title ".concat(accordionOpen ? 'active' : '')
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
+    tagName: "h2",
     value: props.attributes.accordionTitle
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "fl-accordion fl-accordion-panel ".concat(accordionOpen ? 'active' : '')

@@ -33,7 +33,7 @@ export default function save(props) {
             })}
         >
             <button className={`fl-accordion fl-accordion-title ${accordionOpen ? 'active' : ''}`}>
-                <RichText.Content value={props.attributes.accordionTitle} />
+                <RichText.Content tagName='h2' value={props.attributes.accordionTitle} />
             </button>
             <div className={`fl-accordion fl-accordion-panel ${accordionOpen ? 'active' : ''}`}>
                 <InnerBlocks.Content />

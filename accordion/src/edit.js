@@ -56,8 +56,8 @@ export default function Edit(props) {
                 })}
             >
                 <RichText
-                    tagName='div'
-                    multiline='p'
+                    tagName='h2'
+                    multiline=''
                     placeholder='Accordion Title'
                     value={props.attributes.accordionTitle}
                     className='fl-accordion-title'
