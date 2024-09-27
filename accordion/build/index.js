@@ -377,51 +377,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
+function _createSuper(t) { var r = _isNativeReflectConstruct(); return function () { var e, o = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(t); if (r) { var s = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(this).constructor; e = Reflect.construct(o, arguments, s); } else e = o.apply(this, arguments); return _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, e); }; }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
 /*
  * @Author: Hank
  * @Date: 2019-08-23 14:07:43
  * @Last Modified by: Hank
  * @Last Modified time: 2019-09-03 12:08:13
  */
-
 /**
  * Inspector Controls Copied from my old accrodion block
  */
 // Setup the block
 var __ = wp.i18n.__;
 var Component = wp.element.Component; // Import block components
-
 var InspectorControls = wp.blockEditor.InspectorControls; // Import Inspector components
-
 var _wp$components = wp.components,
-    PanelBody = _wp$components.PanelBody,
-    RangeControl = _wp$components.RangeControl,
-    ToggleControl = _wp$components.ToggleControl;
+  PanelBody = _wp$components.PanelBody,
+  RangeControl = _wp$components.RangeControl,
+  ToggleControl = _wp$components.ToggleControl;
 /**
  * Create an Inspector Controls wrapper Component
  */
-
 var Inspector = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(Inspector, _Component);
-
   var _super = _createSuper(Inspector);
-
   function Inspector(props) {
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Inspector);
-
     return _super.apply(this, arguments);
   }
-
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Inspector, [{
     key: "render",
     value: function render() {
       var _this = this;
-
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(InspectorControls, {
         key: "inspector"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(PanelBody, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(ToggleControl, {
@@ -435,10 +423,8 @@ var Inspector = /*#__PURE__*/function (_Component) {
       })));
     }
   }]);
-
   return Inspector;
 }(Component);
-
 
 
 /***/ }),
@@ -463,13 +449,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_editor_scss__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/inspector */ "./src/components/inspector.js");
 
-
 /**
  * Retrieves the translation of text.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
- // import Inspector from './components/inspector'
+
+
+// import Inspector from './components/inspector'
 // import Accordion from './components/accordion'
 
 /**
@@ -497,9 +484,9 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {WPElement} Element to render.
  */
-
 function Edit(props) {
-  return (// Show the block alignment controls on focus
+  return (
+    // Show the block alignment controls on focus
     Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["BlockControls"], {
       key: "controls"
     }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["AlignmentToolbar"], {
@@ -512,8 +499,8 @@ function Edit(props) {
     })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_inspector__WEBPACK_IMPORTED_MODULE_4__["default"], props), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"])({
       className: props.attributes.accordionAlignment ? 'fl-align-' + props.attributes.accordionAlignment : undefined
     }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"], {
-      tagName: "div",
-      multiline: "p",
+      tagName: "h2",
+      multiline: "",
       placeholder: "Accordion Title",
       value: props.attributes.accordionTitle,
       className: "fl-accordion-title",
@@ -560,6 +547,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/save.js");
 
 
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * All files containing `style` keyword are bundled together. The code used
@@ -572,7 +560,6 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Internal dependencies
  */
-
 
 
 var blockAttributes = {
@@ -631,12 +618,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 
-
 /**
  * Retrieves the translation of text.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
+
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -655,12 +642,11 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {WPElement} Element to render.
  */
-
 function save(props) {
   var accordionOpen = props.attributes.accordionOpen;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["useBlockProps"].save({
     className: props.attributes.accordionAlignment ? 'fl-align-' + props.attributes.accordionAlignment : undefined
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", {
     className: "fl-accordion fl-accordion-title ".concat(accordionOpen ? 'active' : '')
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["RichText"].Content, {
     value: props.attributes.accordionTitle
