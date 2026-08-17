@@ -84,9 +84,9 @@ function futurelab_base_plugin_carousel_register_block() {
 	);
 	wp_enqueue_script(
 		'flb-carousel-init-script',
-		plugins_url( 'src/frontend.js', __FILE__ ),
+		plugins_url( 'src/frontend.min.js', __FILE__ ),
 		array( 'flb-swiper-script', 'jquery' ),
-		filemtime( plugin_dir_path( __FILE__ ) . 'src/frontend.js'),
+		filemtime( plugin_dir_path( __FILE__ ) . 'src/frontend.min.js'),
 		true
 	);
 
