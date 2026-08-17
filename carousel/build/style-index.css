@@ -1,8 +1,2 @@
 
-.wp-block-futurelab-base-plugin-carousel .wp-block-cover,
-.wp-block-futurelab-base-plugin-carousel .wp-block-cover-image {
-  flex-shrink: 0;
-  height: auto;
-}
-
-/*# sourceMappingURL=style-index.css.map*/
+.wp-block-futurelab-base-plugin-carousel .wp-block-cover,.wp-block-futurelab-base-plugin-carousel .wp-block-cover-image{flex-shrink:0;height:auto}
